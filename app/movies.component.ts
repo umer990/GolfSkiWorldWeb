@@ -11,12 +11,11 @@ import { map }  from 'rxjs/add/operator/map';
 
 @Component({
 	selector:'movies',
- directives:[ImageModalComponent]
+ directives:[ImageModalComponent],
+ 
 	template:`
 			<div *ngIf="slidesLoaded" class="col-lg-10 col-lg-offset-1">
-			<div ng-if="images.length==0">
-			<h4 >No avaialable Movies</h4>
-			</div>
+			
 				<div >
             <div  *ngFor="let img of images; let i= index"> 
 							<div class="float-left" *ngIf="i <= 2" >

@@ -2,6 +2,7 @@ import {Component, Input,Output,ElementRef,EventEmitter,OnInit} from '@angular/c
 
 @Component({
     selector: 'ImageModal1',
+    
    template: `
    <div class="ng-gallery" *ngIf="showRepeat"> 
      <div *ngFor ="let i of modalImages; let index = index">
