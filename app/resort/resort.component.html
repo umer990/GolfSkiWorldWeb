@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs nav-justified">
+   <li role="presentation" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a   [routerLink]="['/resort/hotels']" [queryParams]="{'lat':lat,'lng':lng}">Hotels</a></li>
+   <li role="presentation" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a  [routerLink]="['/resort/restaurants']" [queryParams]="{'lat':lat,'lng':lng}">Restaurants</a></li>
+   <li role="presentation" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a  [routerLink]="['/resort/transportations']" [queryParams]="{'lat':lat,'lng':lng}">Transportations</a></li>
+   <li role="presentation" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"> <a  [routerLink]="['/resort/deals']" [queryParams]="{'lat':lat,'lng':lng}">LastMinute/Deals</a></li>
+</ul>
+<div id="content">
+   <router-outlet></router-outlet>
+</div>
+<button id="backButton" (click)="goBack()">Back</button>

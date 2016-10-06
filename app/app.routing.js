@@ -1,28 +1,24 @@
-System.register(['angular2/router', './landing.component', './pagenotfound.component'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var router_1, landing_component_1, pagenotfound_component_1;
-    var appRoutes, appRoutingProviders, routing;
-    return {
-        setters:[
-            function (router_1_1) {
-                router_1 = router_1_1;
-            },
-            function (landing_component_1_1) {
-                landing_component_1 = landing_component_1_1;
-            },
-            function (pagenotfound_component_1_1) {
-                pagenotfound_component_1 = pagenotfound_component_1_1;
-            }],
-        execute: function() {
-            appRoutes = [
-                { path: 'landing', component: landing_component_1.LandingComponent },
-                { path: 'author/:id', component: AuthorsComponent },
-                { path: '**', component: pagenotfound_component_1.PageNotFoundComponent }
-            ];
-            exports_1("appRoutingProviders", appRoutingProviders = []);
-            exports_1("routing", routing = router_1.RouterModule.forRoot(appRoutes));
-        }
+"use strict";
+var router_1 = require('@angular/router');
+var landing_component_1 = require('./landing.component');
+var admin_component_1 = require('./admin.component');
+var awards_component_1 = require('./awards.component');
+var appRoutes = [
+    {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+    },
+    { path: 'home', component: landing_component_1.LandingComponent },
+    {
+        path: 'awards',
+        component: awards_component_1.AwardsComponent
+    },
+    {
+        path: 'admin',
+        component: admin_component_1.AdminComponent
     }
-});
+];
+exports.appRoutingProviders = [];
+exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.routing.js.map

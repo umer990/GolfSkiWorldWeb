@@ -1,0 +1,1252 @@
+{
+  "hotels_prices": [
+    {
+      "id": 47219857,
+      "agent_prices": [
+        {
+          "id": 2,
+          "price_total": 709
+        }
+      ],
+      "hotel": {
+        "name": "Tune Hotel - Westminster, London",
+        "types": [
+          "Hotel"
+        ],
+        "hotel_id": 47219857,
+        "address": ", ",
+        "district": 0,
+        "number_of_rooms": 0,
+        "popularity": 70,
+        "popularity_desc": "Good",
+        "amenities": [
+          "Disabled facilities",
+          "Front desk 24 hour",
+          "Non-smoking",
+          "Air conditioning",
+          "Wi-Fi",
+          "Luggage storage",
+          "Lift",
+          "Television",
+          "Minibar",
+          "Business centre",
+          "Conference facilities",
+          "Restaurant",
+          "Hairdryer",
+          "Massage",
+          "Daily newspaper",
+          "Fitness centre",
+          "Bar",
+          "Sauna",
+          "Disabled facilities",
+          "Safe deposit box",
+          "Concierge",
+          "Wedding facilities",
+          "Room service",
+          "Air conditioning",
+          "Spa",
+          "Internet access",
+          "Multilingual staff"
+        ],
+        "latitude": 51.49911,
+        "longitude": -0.1127,
+        "image_urls": [
+          "d3ba47lalua02r.cloudfront.net/available{/36192438/:{rmt.jpg:[200,200],rmc.jpg:[628,418],morig.jpg:[1000,667],rmf.jpg:[1000,667],provider:183,rmca.jpg:[627,470],order:0}}"
+        ],
+        "images": {
+          "/43687177/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              628,
+              428
+            ],
+            "morig.jpg": [
+              800,
+              546
+            ],
+            "rmf.jpg": [
+              800,
+              546
+            ],
+            "provider": [
+              112
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          },
+          "/36192438/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              628,
+              418
+            ],
+            "morig.jpg": [
+              1000,
+              667
+            ],
+            "rmf.jpg": [
+              1000,
+              667
+            ],
+            "provider": [
+              183
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          },
+          "/43712224/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              554,
+              800
+            ],
+            "morig.jpg": [
+              554,
+              800
+            ],
+            "rmf.jpg": [
+              554,
+              800
+            ],
+            "provider": [
+              112
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          }
+        },
+        "score": 0,
+        "tag": "AVAILABLE",
+        "star_rating": 3,
+        "distance_from_search": 1.46,
+        "url": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D&hotelIds=47219857"
+      }
+    },
+    {
+      "id": 112812798,
+      "agent_prices": [
+        {
+          "id": 129,
+          "price_total": 790
+        }
+      ],
+      "hotel": {
+        "name": "The Westbridge Hotel",
+        "types": [
+          "Hotel"
+        ],
+        "hotel_id": 112812798,
+        "address": ", ",
+        "district": 0,
+        "number_of_rooms": 0,
+        "popularity": 88,
+        "popularity_desc": "Very good",
+        "amenities": [
+          "Front desk 24 hour",
+          "Laundry",
+          "Iron",
+          "Wi-Fi",
+          "Luggage storage",
+          "Lift",
+          "Telephone",
+          "Balcony",
+          "Gymnasium",
+          "Television",
+          "Business centre",
+          "Wake up call",
+          "Restaurant",
+          "Hairdryer",
+          "Daily newspaper",
+          "Fitness centre",
+          "Concierge",
+          "Non-smoking",
+          "Disabled facilities",
+          "Safe deposit box",
+          "Smoking areas",
+          "Room service",
+          "Air conditioning",
+          "Internet access",
+          "Multilingual staff"
+        ],
+        "latitude": 51.53751,
+        "longitude": -0.002328157,
+        "image_urls": [
+          "d3ba47lalua02r.cloudfront.net/available{/17359590/:{rmt.jpg:[200,200],rmc.jpg:[468,470],morig.jpg:[997,1000],rmf.jpg:[997,1000],provider:177,rmca.jpg:[627,470],order:0}}"
+        ],
+        "images": {
+          "/43686824/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              628,
+              417
+            ],
+            "morig.jpg": [
+              800,
+              532
+            ],
+            "rmf.jpg": [
+              800,
+              532
+            ],
+            "provider": [
+              112
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          },
+          "/17359590/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              468,
+              470
+            ],
+            "morig.jpg": [
+              997,
+              1000
+            ],
+            "rmf.jpg": [
+              997,
+              1000
+            ],
+            "provider": [
+              177
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          }
+        },
+        "score": 0,
+        "tag": "AVAILABLE",
+        "star_rating": 4,
+        "distance_from_search": 9.297,
+        "url": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D&hotelIds=112812798"
+      }
+    },
+    {
+      "id": 46941077,
+      "agent_prices": [
+        {
+          "id": 5,
+          "price_total": 841
+        }
+      ],
+      "hotel": {
+        "name": "Britannia International Hotel Canary Wharf",
+        "types": [
+          "Hotel"
+        ],
+        "hotel_id": 46941077,
+        "address": ", ",
+        "district": 0,
+        "number_of_rooms": 0,
+        "popularity": 70,
+        "popularity_desc": "Good",
+        "amenities": [
+          "Fitness centre",
+          "Concierge",
+          "Gymnasium",
+          "Parking",
+          "Television",
+          "Indoor pool",
+          "Laundry",
+          "Pets allowed",
+          "Bar",
+          "Sauna",
+          "Lift",
+          "Restaurant",
+          "Front desk 24 hour",
+          "Luggage storage",
+          "Hairdryer",
+          "Spa",
+          "Limousine",
+          "Multilingual staff",
+          "Safe deposit box",
+          "Steam room",
+          "Telephone"
+        ],
+        "latitude": 51.50177,
+        "longitude": -0.02365172,
+        "image_urls": [
+          "d3ba47lalua02r.cloudfront.net/available{/24137931/:{rmt.jpg:[200,200],rmc.jpg:[672,389],morig.jpg:[672,389],rmf.jpg:[672,389],provider:112,rmca.jpg:[627,470],order:0}}"
+        ],
+        "images": {
+          "/43687577/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              369,
+              470
+            ],
+            "morig.jpg": [
+              629,
+              800
+            ],
+            "rmf.jpg": [
+              629,
+              800
+            ],
+            "provider": [
+              112
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          },
+          "/24137931/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              672,
+              389
+            ],
+            "morig.jpg": [
+              672,
+              389
+            ],
+            "rmf.jpg": [
+              672,
+              389
+            ],
+            "provider": [
+              112
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          }
+        },
+        "score": 0,
+        "tag": "AVAILABLE",
+        "star_rating": 4,
+        "distance_from_search": 7.263,
+        "url": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D&hotelIds=46941077"
+      }
+    },
+    {
+      "id": 46972389,
+      "agent_prices": [
+        {
+          "id": 129,
+          "price_total": 874
+        }
+      ],
+      "hotel": {
+        "name": "Rafayel Hotel & Spa",
+        "types": [
+          "Hotel"
+        ],
+        "hotel_id": 46972389,
+        "address": ", ",
+        "district": 0,
+        "number_of_rooms": 0,
+        "popularity": 80,
+        "popularity_desc": "Very good",
+        "amenities": [
+          "Fitness centre",
+          "Meeting facilities",
+          "Satellite TV",
+          "Parking",
+          "Front desk 24 hour",
+          "Air conditioning",
+          "Laundry",
+          "Pets allowed",
+          "Shuttle service",
+          "Restaurant",
+          "Indoor pool",
+          "Wi-Fi",
+          "Reception area",
+          "Spa",
+          "Disabled facilities",
+          "Non-smoking",
+          "Bar",
+          "Safe deposit box",
+          "Shops",
+          "Steam room",
+          "Telephone"
+        ],
+        "latitude": 51.47036,
+        "longitude": -0.1774697,
+        "image_urls": [
+          "d3ba47lalua02r.cloudfront.net/available{/43711302/:{rmt.jpg:[200,200],rmc.jpg:[628,418],morig.jpg:[800,533],rmf.jpg:[800,533],provider:112,rmca.jpg:[627,470],order:0}}"
+        ],
+        "images": {
+          "/45196374/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              508,
+              470
+            ],
+            "morig.jpg": [
+              800,
+              740
+            ],
+            "rmf.jpg": [
+              800,
+              740
+            ],
+            "provider": [
+              112
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          },
+          "/43711302/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              628,
+              418
+            ],
+            "morig.jpg": [
+              800,
+              533
+            ],
+            "rmf.jpg": [
+              800,
+              533
+            ],
+            "provider": [
+              112
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          },
+          "/43664574/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              628,
+              411
+            ],
+            "morig.jpg": [
+              800,
+              524
+            ],
+            "rmf.jpg": [
+              800,
+              524
+            ],
+            "provider": [
+              112
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          }
+        },
+        "score": 0,
+        "tag": "AVAILABLE",
+        "star_rating": 5,
+        "distance_from_search": 5.424,
+        "url": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D&hotelIds=46972389"
+      }
+    },
+    {
+      "id": 46941197,
+      "agent_prices": [
+        {
+          "id": 129,
+          "price_total": 1059
+        }
+      ],
+      "hotel": {
+        "name": "Kensington Close Hotel And Spa",
+        "types": [
+          "Hotel"
+        ],
+        "hotel_id": 46941197,
+        "address": ", ",
+        "district": 0,
+        "number_of_rooms": 0,
+        "popularity": 76,
+        "popularity_desc": "Good",
+        "amenities": [
+          "Front desk 24 hour",
+          "Lounge",
+          "Wi-Fi",
+          "Luggage storage",
+          "Lift",
+          "Telephone",
+          "Gymnasium",
+          "Television",
+          "Meeting facilities",
+          "Indoor pool",
+          "Business centre",
+          "Conference facilities",
+          "Restaurant",
+          "Hairdryer",
+          "Massage",
+          "Laundry",
+          "Fitness centre",
+          "Express check-in",
+          "Non-smoking",
+          "Bar",
+          "Sauna",
+          "Parking",
+          "Safe deposit box",
+          "Concierge",
+          "Wedding facilities",
+          "Air conditioning",
+          "Spa",
+          "Multilingual staff"
+        ],
+        "latitude": 51.49885,
+        "longitude": -0.1920287,
+        "image_urls": [
+          "d3ba47lalua02r.cloudfront.net/available{/25832667/:{rmt.jpg:[200,200],rmc.jpg:[628,418],morig.jpg:[800,533],rmf.jpg:[800,533],provider:112,rmca.jpg:[627,470],order:0}}"
+        ],
+        "images": {
+          "/43687952/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              628,
+              418
+            ],
+            "morig.jpg": [
+              800,
+              533
+            ],
+            "rmf.jpg": [
+              800,
+              533
+            ],
+            "provider": [
+              112
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          },
+          "/25832667/": {
+            "rmt.jpg": [
+              200,
+              200
+            ],
+            "rmc.jpg": [
+              628,
+              418
+            ],
+            "morig.jpg": [
+              800,
+              533
+            ],
+            "rmf.jpg": [
+              800,
+              533
+            ],
+            "provider": [
+              112
+            ],
+            "rmca.jpg": [
+              627,
+              470
+            ],
+            "order": [
+              0
+            ]
+          }
+        },
+        "score": 0,
+        "tag": "AVAILABLE",
+        "star_rating": 4,
+        "distance_from_search": 4.554,
+        "url": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D&hotelIds=46941197"
+      }
+    }
+  ],
+  "hotels": [
+    {
+      "name": "H10 London Waterloo",
+      "types": [
+        "Hotel"
+      ],
+      "hotel_id": 46988254,
+      "address": ", ",
+      "district": 0,
+      "number_of_rooms": 0,
+      "popularity": 84,
+      "popularity_desc": "Very good",
+      "amenities": [
+        "Front desk 24 hour",
+        "Lounge",
+        "Wi-Fi",
+        "Lift",
+        "Laundry",
+        "Telephone",
+        "Gymnasium",
+        "Television",
+        "Minibar",
+        "Business centre",
+        "Conference facilities",
+        "Restaurant",
+        "Hairdryer",
+        "Massage",
+        "Daily newspaper",
+        "Fitness centre",
+        "Bar",
+        "Sauna",
+        "Disabled facilities",
+        "Safe deposit box",
+        "Concierge",
+        "Wedding facilities",
+        "Room service",
+        "Air conditioning",
+        "Spa",
+        "Internet access",
+        "Multilingual staff"
+      ],
+      "latitude": 51.49892,
+      "longitude": -0.1062188,
+      "image_urls": [
+        "d3ba47lalua02r.cloudfront.net/available{/43712224/:{rmt.jpg:[200,200],rmc.jpg:[554,800],morig.jpg:[554,800],rmf.jpg:[554,800],provider:112,rmca.jpg:[627,470],order:0}}"
+      ],
+      "images": {
+        "/43712224/": {
+          "rmt.jpg": [
+            200,
+            200
+          ],
+          "rmc.jpg": [
+            554,
+            800
+          ],
+          "morig.jpg": [
+            554,
+            800
+          ],
+          "rmf.jpg": [
+            554,
+            800
+          ],
+          "provider": [
+            112
+          ],
+          "rmca.jpg": [
+            627,
+            470
+          ],
+          "order": [
+            0
+          ]
+        }
+      },
+      "score": 0,
+      "tag": "AVAILABLE",
+      "star_rating": 4,
+      "distance_from_search": 1.824,
+      "url": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D&hotelIds=46988254"
+    },
+    {
+      "name": "Doubletree By Hilton Hotel London - Tower Of London",
+      "types": [
+        "Hotel"
+      ],
+      "hotel_id": 46995370,
+      "address": ", ",
+      "district": 0,
+      "number_of_rooms": 0,
+      "popularity": 86,
+      "popularity_desc": "Very good",
+      "amenities": [
+        "Fitness centre",
+        "Balcony",
+        "Gymnasium",
+        "Parking",
+        "Television",
+        "Non-smoking",
+        "Bar",
+        "Restaurant",
+        "Wi-Fi",
+        "Front desk 24 hour",
+        "Luggage storage",
+        "Disabled facilities",
+        "Concierge",
+        "Conference facilities",
+        "Laundry",
+        "Telephone"
+      ],
+      "latitude": 51.51084,
+      "longitude": -0.07841729,
+      "image_urls": [
+        "d3ba47lalua02r.cloudfront.net/available{/45196497/:{rmt.jpg:[200,200],rmc.jpg:[595,800],morig.jpg:[595,800],rmf.jpg:[595,800],provider:112,rmca.jpg:[627,470],order:0}}"
+      ],
+      "images": {
+        "/45196497/": {
+          "rmt.jpg": [
+            200,
+            200
+          ],
+          "rmc.jpg": [
+            595,
+            800
+          ],
+          "morig.jpg": [
+            595,
+            800
+          ],
+          "rmf.jpg": [
+            595,
+            800
+          ],
+          "provider": [
+            112
+          ],
+          "rmca.jpg": [
+            627,
+            470
+          ],
+          "order": [
+            0
+          ]
+        }
+      },
+      "score": 0,
+      "tag": "AVAILABLE",
+      "star_rating": 4,
+      "distance_from_search": 3.448,
+      "url": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D&hotelIds=46995370"
+    },
+    {
+      "name": "Hilton London Kensington Hotel",
+      "types": [
+        "Hotel"
+      ],
+      "hotel_id": 46963725,
+      "address": ", ",
+      "district": 0,
+      "number_of_rooms": 0,
+      "popularity": 76,
+      "popularity_desc": "Good",
+      "amenities": [
+        "Smoking areas",
+        "Express check-out",
+        "Express check-in",
+        "Restaurant",
+        "Multilingual staff",
+        "Fitness centre",
+        "Television",
+        "Concierge",
+        "Bar",
+        "Pets allowed",
+        "Business centre",
+        "Sauna",
+        "Wi-Fi",
+        "Front desk 24 hour",
+        "Limousine",
+        "Laundry",
+        "Luggage storage",
+        "Safe deposit box",
+        "Shops",
+        "Steam room",
+        "Telephone",
+        "Safe deposit box",
+        "Concierge",
+        "Wedding facilities",
+        "Room service",
+        "Air conditioning",
+        "Spa",
+        "Multilingual staff"
+      ],
+      "latitude": 51.50495,
+      "longitude": -0.2145016,
+      "image_urls": [
+        "d3ba47lalua02r.cloudfront.net/available{/43664574/:{rmt.jpg:[200,200],rmc.jpg:[628,411],morig.jpg:[800,524],rmf.jpg:[800,524],provider:112,rmca.jpg:[627,470],order:0}}"
+      ],
+      "images": {
+        "/43664574/": {
+          "rmt.jpg": [
+            200,
+            200
+          ],
+          "rmc.jpg": [
+            628,
+            411
+          ],
+          "morig.jpg": [
+            800,
+            524
+          ],
+          "rmf.jpg": [
+            800,
+            524
+          ],
+          "provider": [
+            112
+          ],
+          "rmca.jpg": [
+            627,
+            470
+          ],
+          "order": [
+            0
+          ]
+        },
+        "/43709588/": {
+          "rmt.jpg": [
+            200,
+            200
+          ],
+          "rmc.jpg": [
+            628,
+            390
+          ],
+          "morig.jpg": [
+            800,
+            497
+          ],
+          "rmf.jpg": [
+            800,
+            497
+          ],
+          "provider": [
+            112
+          ],
+          "rmca.jpg": [
+            627,
+            470
+          ],
+          "order": [
+            0
+          ]
+        }
+      },
+      "score": 0,
+      "tag": "AVAILABLE",
+      "star_rating": 4,
+      "distance_from_search": 6.002,
+      "url": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D&hotelIds=46963725"
+    },
+    {
+      "name": "Park Plaza Westminster Bridge London",
+      "types": [
+        "Hotel"
+      ],
+      "hotel_id": 47165049,
+      "address": ", ",
+      "district": 0,
+      "number_of_rooms": 0,
+      "popularity": 88,
+      "popularity_desc": "Very good",
+      "amenities": [
+        "Express check-out",
+        "Front desk 24 hour",
+        "Laundry",
+        "Wi-Fi",
+        "Luggage storage",
+        "Lift",
+        "Steam room",
+        "Telephone",
+        "Television",
+        "Minibar",
+        "Indoor pool",
+        "Business centre",
+        "Express check-in",
+        "Restaurant",
+        "Massage",
+        "Daily newspaper",
+        "Fitness centre",
+        "Non-smoking",
+        "Bar",
+        "Sauna",
+        "Café",
+        "Safe deposit box",
+        "Concierge",
+        "Wedding facilities",
+        "Room service",
+        "Air conditioning",
+        "Spa",
+        "Multilingual staff"
+      ],
+      "latitude": 51.50081,
+      "longitude": -0.1173466,
+      "image_urls": [
+        "d3ba47lalua02r.cloudfront.net/available{/43709588/:{rmt.jpg:[200,200],rmc.jpg:[628,390],morig.jpg:[800,497],rmf.jpg:[800,497],provider:112,rmca.jpg:[627,470],order:0}}"
+      ],
+      "images": {
+        "/43709588/": {
+          "rmt.jpg": [
+            200,
+            200
+          ],
+          "rmc.jpg": [
+            628,
+            390
+          ],
+          "morig.jpg": [
+            800,
+            497
+          ],
+          "rmf.jpg": [
+            800,
+            497
+          ],
+          "provider": [
+            112
+          ],
+          "rmca.jpg": [
+            627,
+            470
+          ],
+          "order": [
+            0
+          ]
+        },
+        "/43664574/": {
+          "rmt.jpg": [
+            200,
+            200
+          ],
+          "rmc.jpg": [
+            628,
+            411
+          ],
+          "morig.jpg": [
+            800,
+            524
+          ],
+          "rmf.jpg": [
+            800,
+            524
+          ],
+          "provider": [
+            112
+          ],
+          "rmca.jpg": [
+            627,
+            470
+          ],
+          "order": [
+            0
+          ]
+        }
+      },
+      "score": 0,
+      "tag": "AVAILABLE",
+      "star_rating": 4,
+      "distance_from_search": 1.099,
+      "url": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D&hotelIds=47165049"
+    },
+    {
+      "name": "Hilton London Metropole",
+      "types": [
+        "Hotel"
+      ],
+      "hotel_id": 47017476,
+      "address": ", ",
+      "district": 0,
+      "number_of_rooms": 0,
+      "popularity": 72,
+      "popularity_desc": "Good",
+      "amenities": [
+        "Express check-out",
+        "Pets allowed",
+        "Front desk 24 hour",
+        "Laundry",
+        "Wi-Fi",
+        "Luggage storage",
+        "Steam room",
+        "Telephone",
+        "Television",
+        "Meeting facilities",
+        "Indoor pool",
+        "Business centre",
+        "Hairdressers",
+        "Restaurant",
+        "Daily newspaper",
+        "Fitness centre",
+        "Multilingual staff",
+        "Express check-in",
+        "Bar",
+        "Sauna",
+        "Parking",
+        "Shops",
+        "Conference facilities",
+        "Concierge",
+        "Wedding facilities",
+        "Spa",
+        "Safe deposit box",
+        "Multilingual staff"
+      ],
+      "latitude": 51.51916,
+      "longitude": -0.1694244,
+      "image_urls": [
+        "d3ba47lalua02r.cloudfront.net/available{/43664642/:{rmt.jpg:[200,200],rmc.jpg:[628,378],morig.jpg:[800,482],rmf.jpg:[800,482],provider:112,rmca.jpg:[627,470],order:0}}"
+      ],
+      "images": {
+        "/25832667/": {
+          "rmt.jpg": [
+            200,
+            200
+          ],
+          "rmc.jpg": [
+            628,
+            418
+          ],
+          "morig.jpg": [
+            800,
+            533
+          ],
+          "rmf.jpg": [
+            800,
+            533
+          ],
+          "provider": [
+            112
+          ],
+          "rmca.jpg": [
+            627,
+            470
+          ],
+          "order": [
+            0
+          ]
+        },
+        "/24137931/": {
+          "rmt.jpg": [
+            200,
+            200
+          ],
+          "rmc.jpg": [
+            672,
+            389
+          ],
+          "morig.jpg": [
+            672,
+            389
+          ],
+          "rmf.jpg": [
+            672,
+            389
+          ],
+          "provider": [
+            112
+          ],
+          "rmca.jpg": [
+            627,
+            470
+          ],
+          "order": [
+            0
+          ]
+        },
+        "/17359590/": {
+          "rmt.jpg": [
+            200,
+            200
+          ],
+          "rmc.jpg": [
+            468,
+            470
+          ],
+          "morig.jpg": [
+            997,
+            1000
+          ],
+          "rmf.jpg": [
+            997,
+            1000
+          ],
+          "provider": [
+            177
+          ],
+          "rmca.jpg": [
+            627,
+            470
+          ],
+          "order": [
+            0
+          ]
+        },
+        "/43664642/": {
+          "rmt.jpg": [
+            200,
+            200
+          ],
+          "rmc.jpg": [
+            628,
+            378
+          ],
+          "morig.jpg": [
+            800,
+            482
+          ],
+          "rmf.jpg": [
+            800,
+            482
+          ],
+          "provider": [
+            112
+          ],
+          "rmca.jpg": [
+            627,
+            470
+          ],
+          "order": [
+            0
+          ]
+        }
+      },
+      "score": 0,
+      "tag": "AVAILABLE",
+      "star_rating": 4,
+      "distance_from_search": 3.12,
+      "url": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D&hotelIds=47017476"
+    }
+  ],
+  "agents": [
+    {
+      "id": 1,
+      "name": "Expedia",
+      "image_url": "http://s1.apideeplink.com/images/websites/220x80/h_xp.png",
+      "in_progress": false
+    },
+    {
+      "id": 2,
+      "name": "Laterooms.com",
+      "image_url": "http://s1.apideeplink.com/images/websites/220x80/h_la.png",
+      "in_progress": false
+    },
+    {
+      "id": 3,
+      "name": "hotel.de",
+      "image_url": "http://s1.apideeplink.com/images/websites/220x80/h_if.png",
+      "in_progress": false
+    },
+    {
+      "id": 5,
+      "name": "Otel",
+      "image_url": "http://s1.apideeplink.com/images/websites/220x80/h_ot.png",
+      "in_progress": false
+    },
+    {
+      "id": 6,
+      "name": "Hotelopia",
+      "image_url": "http://s1.apideeplink.com/images/websites/220x80/h_op.png",
+      "in_progress": false
+    }
+  ],
+  "amenities": [
+    {
+      "id": 33,
+      "name": "Express check-out",
+      "key": "EXPRESSCHECKOUTSERVICE"
+    },
+    {
+      "id": 41,
+      "name": "Meeting facilities",
+      "key": "MEETINGROOM"
+    },
+    {
+      "id": 45,
+      "name": "Satellite TV",
+      "key": "SATELLITETV"
+    },
+    {
+      "id": 0,
+      "name": "Front desk 24 hour",
+      "key": "FRONTDESK24HSERVICE"
+    },
+    {
+      "id": 1,
+      "name": "Lounge",
+      "key": "LOUNGE"
+    }
+  ],
+  "places": [],
+  "urls": {
+    "hotel_details": "/apiservices/hotels/livedetails/v3/details/H4sIAAAAAAAEAKtWyleyilYK9VbSUUrN03V3AtLuTgFA0sjc1MTEwMACxDQwNNM1NNA1MAsxMLACIyRRQ2MkUSMdQx0lQ2MdIyDD1FBJJ680JydWRylPycrQ3NjYoBYAekeh9nAAAAA1?apikey=_huaILmV6T-NQqL5FVz5GHRaS-T7hBhDfimRsJlyvTKja9p4fEDCqLeHjYglnDPtBgaRlzyXGW1wzfj6XkB0BKA%3D%3D"
+  },
+  "status": "COMPLETE",
+  "total_hotels": 2000,
+  "total_available_hotels": 699,
+  "last_update": 1475139568212,
+  "image_host_url": "d3ba47lalua02r.cloudfront.net/available",
+  "debug_items": [
+    {
+      "type": "Info",
+      "title": "TimingProfiler Step",
+      "content": "Step=HotelsPricingServiceClient::Poll, ElapsedMilliseconds=1403"
+    }
+  ],
+  "images": []
+}

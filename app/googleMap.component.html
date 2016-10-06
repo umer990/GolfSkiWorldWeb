@@ -1,0 +1,74 @@
+
+
+ <!-- The second value will be selected initially -->
+
+
+
+<div>
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<!--iconUrl="./app/images/golf.ico"-->
+<div id="right-panel">
+      <input id="pac-input" type="text" #box (keyup.enter)="onSearch(box.value)" placeholder="Search Box">
+      <input id="searchButton" (click)="onSearch(box.value)" type="submit" value="Search">
+     <div *ngIf="searchResult!=null">
+    </div>
+
+</div>
+<!--<sebm-google-map  [latitude]="baseLat||0.00" [longitude]="baseLng||0.00"   [zoom]="zoom"
+(mapClick)="mapClicked($event)"  (zoomChange)="zoomChange($event)">
+ <div *ngFor="let cor of coordinatesTobeShown; let i = index"  >
+      <sebm-google-map-marker  (markerClick)="clickedMarker(i, $event)"
+        [label]="cor.count"
+        [latitude]="cor.lat"
+        [longitude]="cor.lng"
+        >
+
+      <sebm-google-map-info-window  *ngIf="cor!=null" [isOpen]="cor.infoWindow.isOpen" >
+       
+          
+        <div>
+          <p>Name: {{cor.infoWindow.name}}</p>
+          <p>Address:{{cor.infoWindow.address}}</p>
+          <p>Telphone: {{cor.infoWindow.telNo}}</p>
+          <p>{{cor.infoWindow.shortDiscription}}</p>
+        </div>
+        <button (click)="gotoDetail(cor.lat,cor.lng)">Details</button>
+       </sebm-google-map-info-window>
+  
+      </sebm-google-map-marker>
+    </div>  
+</sebm-google-map>(markerClick)=""-->
+ 
+<sebm-google-map style="height:350px;" (mapClick)="mapClicked1($event)" [latitude]="baseLat||0.00" [longitude]="baseLng||0.00"  [zoom]="zoom" >
+    <div *ngFor="let location of coordinatesTobeShown; let i=index; "  >
+        <sebm-google-map-marker *ngIf="location.infoWindow!=null" [iconUrl]="location.iconUrl" [latitude]="location.lat" [longitude]="location.lng" [label]="location.id" (markerClick)="updateDiv(location, infowindow)">
+        
+        <sebm-google-map-info-window #infowindow  [disableAutoPan]="true" id="iw-container"  class="gm-style-iw">
+          
+                    
+                    <div class="iw-content">
+                      <div class="iw-subTitle">{{location.infoWindow.address}}</div>
+                      <img src="../img/bed.png" alt="Porcelain Factory of Vista Alegre" height="60" width="50">
+                      <img src="../img/cafe.png" alt="Porcelain Factory of Vista Alegre" height="60" width="50">
+                      <img src="../img/eat.png" alt="Porcelain Factory of Vista Alegre" height="60" width="50">
+                      <p>{{location.infoWindow.telNo}}</p>
+                      <div class="iw-subTitle">Contacts</div>
+                      <p>{{location.infoWindow.telNo}}</p>
+                      
+                      <a (click)="gotoDetail(location.lat,location.lng)">Read More >></a>
+                    </div>
+                
+         
+         </sebm-google-map-info-window>
+          
+        </sebm-google-map-marker>
+   </div>
+</sebm-google-map>
+
+  <section *ngIf="isClicked" id="ethiopian-desert">
+    <div *ngIf="selectedLocation" class="result-number">
+      {{ selectedLocation.id }}
+  </div>
+  </section>
+</div>

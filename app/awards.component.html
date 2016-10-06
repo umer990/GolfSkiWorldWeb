@@ -1,0 +1,103 @@
+
+ <header></header>
+<div id="inSlider" class="carousel slide carousel-fade" data-ride="carousel" ng-non-bindable>
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+        <li data-target="#inSlider" data-slide-to="2"></li>
+        <li data-target="#inSlider" data-slide-to="3"></li>
+        <li data-target="#inSlider" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/87PCL-4IInQ?rel=0&amp;showinfo=0&amp;autoplay=1&amp;enablejsapi=1" frameborder="0" allowfullscreen="" id="yui_3_17_2_1_1474636042434_127" style="opacity: 1;"></iframe>
+                    
+                </div>
+            </div>
+            <div class="header-back" >/div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/87PCL-4IInQ?rel=0&amp;showinfo=0&amp;autoplay=1&amp;enablejsapi=1" frameborder="0" allowfullscreen="" id="yui_3_17_2_1_1474636042434_127" style="opacity: 1;"></iframe>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back" >
+                
+
+            </div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                    
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back" style="background: url('') 50% 0 no-repeat;">
+               
+            </div>
+        </div>
+    
+    </div>
+    <a class="left carousel-control" data-target="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" data-target="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<section id="feature" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Get rewarded while you engage in adventure!</h2>
+                <h3 class="section-heading">Get rewarded while you engage in adventure!</h3>
+                <div class="row" style="margin-top:40px;">
+            
+        </div>
+                <p class="section-text">Don't forget to capture your best moments on video while you are in action golf or ski. Your most amazing times with your buddies or familly on the golf or ski destination.
+
+Show us what you got! It's the chance to witness the impossible!
+
+What should you do? 
+Submit your best clips. More you submit more rewards you get. And we will take care of the rest!
+
+What’s in it for you?
+
+You'd be seen by millions around the world and you'd be entitiled to great travel prizes for your next adventure!
+
+Quarterly, top winners will get to meet professional golfers and skiers around the world in top golfing and skiing destinations and also get fantastic gear all inclusive.
+
+So lets go out for a golf or ski adventure and make some awsome HD videos and share now! </p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+<section id="awardinfo">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">AWARD INFORMATION</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                    <form  (ngSubmit)="onSubmit(f)" #f="ngForm" action="">
+                    <input type="file" (change)="fileEvent($event)" />
+                    </form>
+                    <button (click)="uploadfile(f)">Upload file!</button>
+            </div>
+        </div>
+    </div>
+</section>

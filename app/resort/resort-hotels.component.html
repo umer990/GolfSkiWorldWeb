@@ -1,0 +1,66 @@
+<br>
+<br>
+
+<div class="row">
+  <div class="col-lg-3">
+    <div class="input-group">
+      <span class="input-group-addon">check in:</span>
+       <input type="text" class="form-control"  aria-describedby="basic-addon1" value="{{departure_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusStartDate()" >
+    </div><!-- /input-group -->
+     <div class="results" *ngIf="showDepartureTimePicker">
+                        <datepicker [minDate]="minDate" (selectionDone)="clickStartDate($event)" [(ngModel)]="departure_date"  showWeeks="true"></datepicker>
+                    </div>
+  </div><!-- /.col-lg-6 -->
+
+  <div class="col-lg-3">
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">check out:</span>
+      <input type="text" class="form-control" value="{{return_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusReturnDate()" aria-describedby="basic-addon1">
+    </div><!-- /input-group -->
+<div class="results" *ngIf="showReturnTimePicker">
+                            <datepicker (selectionDone)="clickReturnDate($event)" [minDate]="departure_date" [(ngModel)]="return_date" showWeeks="true"></datepicker>
+                        </div>
+  </div><!-- /.col-lg-6 -->
+ 
+ <div class="col-lg-2">
+ 
+ <span class="input-group">
+       <input type="number" min="0" [(ngModel)]="room" class="form-control">
+       <span class="input-group-addon">rooms</span>
+        
+    </span>  
+  </div>
+
+
+  <div class="col-lg-4">
+     <div class="btn-group" role="group">
+    <button type="button" (click)="onSearch()" class="btn btn-default">Search</button>
+  </div>
+  </div><!-- /.col-lg-6 -->
+
+ </div>
+       <!--  Episodes loop</div>-->
+       
+<table class="table">
+  <thead>
+    <tr>
+      <th>Hotel Name</th> 
+      <th>Popularity</th>
+      <th>Rating</th>
+      <th>Images</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hotel of Hotels">
+      <th scope="row">{{hotel.name}}</th>
+      <td>{{hotel.popularity_desc}}</td>
+      <td>{{hotel.star_rating}}</td>
+      <td><img style="width:120px;height:120px" src={{imageUrl(hotel.image_urls[0])}} /></td>
+
+      
+    </tr>
+    
+  </tbody>
+</table>
+    

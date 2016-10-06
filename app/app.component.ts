@@ -1,26 +1,25 @@
-import {Component} from 'angular2/core';
-import {LandingComponent} from './landing.component'
-import {CoursesComponent} from './courses.component'
-import {AuthorsComponent} from './author.component'
-import {jQueryComponent} from './jquerys.component'
-import {MoviesListComponent} from './moviesList.component'
-import {PageNotFoundComponent} from './pagenotfound.component'
+import { Component ,Input, Output, View, EventEmitter} from '@angular/core';
 
-//import { AppModule } from './app.module';
+import {LandingComponent} from './landing.component';
+import {ImageModalComponent} from './ImageModel.component';
 
-//platformBrowserDynamic().bootstrapModule(AppModule);
+
+
+
+
 
 @Component({
-    selector: 'my-app',
-    template: `
-    		              
-    			<landingPage></landingPage>
-    			
+  selector: 'my-app',
+   template: `
+    		   
+   				<router-outlet></router-outlet>
+                  
+    			<a routerLink="/admin">admin</a>
+    			  
     			
     			`,
-    directives:[LandingComponent,CoursesComponent,AuthorsComponent,jQueryComponent]
-})
+    directives:[LandingComponent,ImageModalComponent]
+    })
+export class AppComponent { 
 
-export class AppComponent {
-AppName="GolfSki World";
 }

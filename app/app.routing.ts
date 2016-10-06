@@ -1,17 +1,26 @@
-import { ModuleWithProviders } from 'angular2/core';
-import { Routes, RouterModule } from 'angular2/router';
+import { ModuleWithProviders }  from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import {LandingComponent} from './landing.component'
-
-import {PageNotFoundComponent} from './pagenotfound.component'
+import {LandingComponent} from './landing.component';
+import { AdminComponent }   from './admin.component';
+import { AwardsComponent }   from './awards.component';
 
 const appRoutes: Routes = [
-  { path: 'landing', component: LandingComponent },
-
-  { path: 'author/:id', component: AuthorsComponent },
-  { path: '**', component: PageNotFoundComponent }
+{
+   path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+},
+{ path: 'home', component: LandingComponent }
+  ,{
+    path: 'awards',
+    component: AwardsComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
+  }
 ];
-
 export const appRoutingProviders: any[] = [
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

@@ -1,0 +1,135 @@
+<br>
+<br>
+<div class="row">
+<div class="col-lg-2">
+<select class="form-control" [(ngModel)]="selectValue" (change)="changeTrip($event.target.value)">
+       <option value="RountTrip">RountTrip</option>
+        <option value="Oneway">One way</option>
+      </select>
+  </div>
+
+  <div class="col-lg-2">
+<select class="form-control" [(ngModel)]="selectClass" (change)="changeClass($event.target.value)">
+        <option value="ECONOMY">Economy Class</option>
+                              <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                              <option value="BUSINESS">Business Class</option>
+                              <option value="FIRST">First Class</option>
+      </select>
+  </div>
+
+  <div class="col-lg-6">
+ 
+ <span class="input-group">
+       <input type="number" min="0" [(ngModel)]="adults" class="form-control">
+       <span class="input-group-addon">adults</span>
+        <input type="number" min="0" [(ngModel)]="children" class="form-control">
+       <span class="input-group-addon">Children(age 2-12)</span>
+        <input type="number" min="0" [(ngModel)]="infants" class="form-control">
+       <span class="input-group-addon">Infants</span>
+    </span>  
+  </div>
+
+
+  <div class="col-lg-2">
+<select class="form-control" [(ngModel)]="currency" (change)="changeCurrency($event.target.value)">
+       <option value="USD">USD</option>
+        <option value="SEK">SEK</option>
+      </select>
+  </div>
+
+</div>
+
+
+ 
+
+
+<hr/>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="input-group">
+      <span class="input-group-addon">
+       From
+      </span>
+     
+       <input type="text" class="form-control" placeholder="AirportCode" aria-describedby="basic-addon1" [(ngModel)]="origin" (focus)="onFocusDepartureAirport()"  (keyup)="searchDepartureAirportSuggestions()" required />
+    </div><!-- /input-group -->
+
+    
+    <div class="results" *ngIf="showDepartureAirportSuggestion && departureSuggestions!=null ">
+                        <ul>
+                            <li *ngFor="let airport of departureSuggestions"> <a (click)="clickDepartureAirport(airport)">{{airport}}</a></li>
+                        </ul>
+                    </div>
+  </div><!-- /.col-lg-6 -->
+  
+  <div class="col-lg-4">
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">To</span>
+      <input type="text" class="form-control" placeholder="AirportCode" aria-describedby="basic-addon1" [(ngModel)]="destination"  (keyup)="searchDestinationAirportSuggestions()" (focus)="onFocusDestinationAirport()" required>
+    </div><!-- /input-group -->
+    <div class="results" *ngIf="showDestinationAirportSuggestion && destinationSuggestions!=null">
+                        <ul>
+                            <li *ngFor="let airport of destinationSuggestions"> <a (click)="clickDestinationAirport(airport)">airport </a> </li>
+                        </ul>
+                    </div>
+  </div><!-- /.col-lg-6 -->
+<div class="col-lg-4">
+     <div class="btn-group" role="group">
+    <button type="button" (click)="onSearch()" class="btn btn-default" [disabled]="!valid">Search</button>
+  </div>
+  </div><!-- /.col-lg-6 -->
+
+</div><!-- /.row -->
+<br>
+
+<div class="row">
+  <div class="col-lg-4">
+    <div class="input-group">
+      <span class="input-group-addon">Departure</span>
+       <input type="text" class="form-control"  aria-describedby="basic-addon1" value="{{departure_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusStartDate()" required >
+    </div><!-- /input-group -->
+     <div class="results" *ngIf="showDepartureTimePicker">
+                        <datepicker [minDate]="minDate" (selectionDone)="clickStartDate($event)" [(ngModel)]="departure_date"  showWeeks="true"></datepicker>
+                    </div>
+  </div><!-- /.col-lg-6 -->
+
+
+
+  <div class="col-lg-4">
+    <div class="input-group" *ngIf="showReturnDate">
+        <span class="input-group-addon" id="basic-addon1">Return</span>
+      <input type="text" class="form-control" value="{{return_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusReturnDate()" aria-describedby="basic-addon1">
+    </div><!-- /input-group -->
+   <div class="results" *ngIf="showReturnTimePicker">
+                            <datepicker (selectionDone)="clickReturnDate($event)" [minDate]="departure_date" 
+                            [(ngModel)]="return_date" showWeeks="true"></datepicker>
+                        </div>
+  </div><!-- /.col-lg-6 -->
+
+</div>
+ 
+<table class="table">
+  <thead>
+    <tr>
+      <th>Airline</th>
+      <th>Depart On</th>
+      <th>Arrive ON</th>
+      <th>Depart From</th>
+      <th>Arrive At</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let flight of flights">
+      <th scope="row">{{flight.InboundLegId.Carriers[0].Name}}</th>
+      <td>{{flight.InboundLegId.Departure}}</td>
+      <td>{{flight.InboundLegId.Arrival}}</td>
+      <td>{{flight.InboundLegId.DestinationStation.Name}}</td>
+      <td>{{flight.InboundLegId.OriginStation.Name}}</td>
+      <td><img src="{{flight.InboundLegId.Carriers[0].ImageUrl}}" /></td>
+    </tr>
+    
+  </tbody>
+</table>
+<br>
+<br>
