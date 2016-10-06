@@ -3,8 +3,8 @@ import {MouseEvent} from 'angular2-google-maps/core';
 import {GOOGLE_MAPS_PROVIDERS,GOOGLE_MAPS_DIRECTIVES,AgmCoreModule} from 'angular2-google-maps/core';
 import {Router,ActivatedRoute, NavigationExtras} from '@angular/router';
 
-import {Coordinates } from './Coordinates';
-import {LocationService} from './LocationService';
+import {Coordinates } from './coordinates';
+import {LocationService} from './locationService';
 import {InfoWindow} from './InfoWindow';
 import {googleMapService} from './googleMap.service';
 
