@@ -13,16 +13,18 @@ import { map }  from 'rxjs/add/operator/map';
 	selector:'movies',
  directives:[ImageModalComponent]
 	template:`
-			<div ng-if="slidesLoaded" class="col-lg-10 col-lg-offset-1">
+			<div *ngIf="slidesLoaded" class="col-lg-10 col-lg-offset-1">
 			<div ng-if="images.length==0">
-			<h4>No avaialable Movies</h4>
+			<h4 >No avaialable Movies</h4>
 			</div>
-                  <div *ngFor="let img of images; let i= index"> 
-		        <div class="float-left" *ngIf="i <= 2" >
-		          <a class="more" *ngIf="i==2" (click)="OpenImageModel(img.img,images)"> +{{images.length - 3}} more </a> 
-		          <img class="list-img" src="{{img.thumb}}"(click)="OpenImageModel(img.img,images)" alt='Image' />
-		        </div>
+				<div >
+            <div  *ngFor="let img of images; let i= index"> 
+							<div class="float-left" *ngIf="i <= 2" >
+								<a class="more" *ngIf="i==2" (click)="OpenImageModel(img.img,images)"> +{{images.length - 3}} more </a> 
+								<img class="list-img" src="{{img.thumb}}"(click)="OpenImageModel(img.img,images)" alt='Image' />
+							</div>
 		      </div>
+					</div>
 		    <div *ngIf="openModalWindow">
 		        <ImageModal1 [modalImages]="images" [imagePointer] = "imagePointer" (cancelEvent) ="cancelImageModel()"></ImageModal1>
 		    </div>
@@ -39,16 +41,11 @@ import { map }  from 'rxjs/add/operator/map';
 
 export class moviesComponent{ 
 
-
-title="Movies loads here ";
-
+slidesLoaded=false;
 movies;
-
 openModalWindow:boolean=false;
-
-
-    imagePointer:number;
-    images=[];
+imagePointer:number;
+images=[];
 
 addImages=function(data){
 					console.log(data)
@@ -61,6 +58,7 @@ addImages=function(data){
 				                                    'img':!destination.thumbnail ? destination.movie : destination.thumbnail                                  
 				                                })
 				                                }
+																				this.slidesLoaded=true;
 				}
 
 
@@ -82,13 +80,16 @@ constructor(moviesService: movieService){
  OpenImageModel(imageSrc,images) {
      //alert('OpenImages');
      var imageModalPointer;
+		 
      for (var i = 0; i < images.length; i++) {
             if (imageSrc === images[i].img) {
               imageModalPointer = i;
               console.log('jhhl',i);
               break;
             }
+						
        }
+			 
          this.openModalWindow = true;
      this.images = images;
      this.imagePointer  = imageModalPointer;
