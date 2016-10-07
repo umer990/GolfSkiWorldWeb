@@ -14,9 +14,9 @@ import { map }  from 'rxjs/add/operator/map';
  directives:[ImageModalComponent],
  
 	template:`
-			<div *ngIf="slidesLoaded" class="col-lg-10 col-lg-offset-1">
-			
-				<div >
+			<div  class="col-lg-10 col-lg-offset-1">
+			movies
+				<div *ngIf="slidesLoaded">
             <div  *ngFor="let img of images; let i= index"> 
 							<div class="float-left" *ngIf="i <= 2" >
 								<a class="more" *ngIf="i==2" (click)="OpenImageModel(img.img,images)"> +{{images.length - 3}} more </a> 

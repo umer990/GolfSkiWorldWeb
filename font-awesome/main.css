@@ -13,6 +13,7 @@
     text-align: center;
 }
 .list-img {
+  height: 210px;
   margin-top: 2px;
   cursor: pointer;
 }
