@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var core_2 = require('angular2-google-maps/core');
 var router_1 = require('@angular/router');
-var locationService_1 = require('./locationService');
 var googleMap_service_1 = require('./googleMap.service');
 var googleMapComponent = (function () {
     function googleMapComponent(router, route, geoService) {
@@ -169,9 +168,9 @@ var googleMapComponent = (function () {
             directives: [core_2.GOOGLE_MAPS_DIRECTIVES, core_2.AgmCoreModule],
             styleUrls: ['app/googleMap.component.css'],
             templateUrl: 'app/googleMap.component.html',
-            providers: [googleMap_service_1.googleMapService, locationService_1.LocationService]
+            providers: [googleMap_service_1.LocationService]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, locationService_1.LocationService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, googleMap_service_1.LocationService])
     ], googleMapComponent);
     return googleMapComponent;
 }());

@@ -15,4 +15,4 @@ var Coordinates = (function () {
     return Coordinates;
 }());
 exports.Coordinates = Coordinates;
-//# sourceMappingURL=Coordinates.js.map
+//# sourceMappingURL=coordinates.js.map

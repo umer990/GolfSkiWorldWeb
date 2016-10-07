@@ -13,7 +13,7 @@ var Observable_1 = require('rxjs/Observable');
 var http_1 = require('@angular/http');
 require('rxjs/Rx');
 var InfoWindow_1 = require('./InfoWindow');
-var Coordinates_1 = require('./Coordinates');
+var coordinates_1 = require('./coordinates');
 var myGlobals = require('./constants');
 var LocationService = (function () {
     function LocationService(http) {
@@ -101,11 +101,11 @@ var LocationService = (function () {
             }
             for (var country_id in country) {
                 var coorCountry = country[country_id];
-                coordinatesList.push(new Coordinates_1.Coordinates(coorCountry["lat"], coorCountry["lng"], coorCountry["zoomMin"], coorCountry["zoomMax"], coorCountry["count"], coorCountry["country"], coorCountry["city"], coorCountry["type"], coorCountry["infoWindow"]));
+                coordinatesList.push(new coordinates_1.Coordinates(coorCountry["lat"], coorCountry["lng"], coorCountry["zoomMin"], coorCountry["zoomMax"], coorCountry["count"], coorCountry["country"], coorCountry["city"], coorCountry["type"], coorCountry["infoWindow"]));
             }
             for (var city_id in city) {
                 var coor_2 = city[city_id];
-                coordinatesList.push(new Coordinates_1.Coordinates(coor_2["lat"], coor_2["lng"], coor_2["zoomMin"], coor_2["zoomMax"], coor_2["count"], coor_2["country"], coor_2["city"], coor_2["type"], coor_2["infoWindow"]));
+                coordinatesList.push(new coordinates_1.Coordinates(coor_2["lat"], coor_2["lng"], coor_2["zoomMin"], coor_2["zoomMax"], coor_2["count"], coor_2["country"], coor_2["city"], coor_2["type"], coor_2["infoWindow"]));
             }
             coordinatesList.push(a);
         });
@@ -128,7 +128,7 @@ var LocationService = (function () {
             var cityName = a.city.name;
             var address = a.street + "," + a.zip + "," + cityName + "," + countryName;
             var infoWindow = new InfoWindow_1.InfoWindow(a.phone, address, a.description, " ", true, a.name, a.thumbnail, false, "");
-            var coordinates = new Coordinates_1.Coordinates(lat, lng, 9, 20, "1", countryName, cityName, "", infoWindow, icon);
+            var coordinates = new coordinates_1.Coordinates(lat, lng, 9, 20, "1", countryName, cityName, "", infoWindow, icon);
             if (country_id in country) {
                 var coor_3 = country[country_id];
                 var count = Number(coor_3["count"]);
@@ -175,11 +175,11 @@ var LocationService = (function () {
         console.log(city);
         for (var country_id in country) {
             var coor = country[country_id];
-            coordinatesList.push(new Coordinates_1.Coordinates(coor["lat"], coor["lng"], coor["zoomMin"], coor["zoomMax"], coor["count"], coor["country"], coor["city"], coor["type"], coor["infoWindow"], ""));
+            coordinatesList.push(new coordinates_1.Coordinates(coor["lat"], coor["lng"], coor["zoomMin"], coor["zoomMax"], coor["count"], coor["country"], coor["city"], coor["type"], coor["infoWindow"], ""));
         }
         for (var city_id in city) {
             var coor = city[city_id];
-            coordinatesList.push(new Coordinates_1.Coordinates(coor["lat"], coor["lng"], coor["zoomMin"], coor["zoomMax"], coor["count"], coor["country"], coor["city"], coor["type"], coor["infoWindow"], ""));
+            coordinatesList.push(new coordinates_1.Coordinates(coor["lat"], coor["lng"], coor["zoomMin"], coor["zoomMax"], coor["count"], coor["country"], coor["city"], coor["type"], coor["infoWindow"], ""));
         }
         console.log(coordinatesList);
         return coordinatesList;

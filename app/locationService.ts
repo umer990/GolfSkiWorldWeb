@@ -3,7 +3,7 @@ import {Observable}from 'rxjs/Observable';
 import {Http,Response}from '@angular/http';
 import 'rxjs/Rx';
 import {InfoWindow}from './InfoWindow';
-import {Coordinates}from './Coordinates';
+import {Coordinates}from './coordinates';
 import myGlobals = require('./constants');
 
 @Injectable()

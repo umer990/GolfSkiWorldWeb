@@ -4,16 +4,16 @@ import {GOOGLE_MAPS_PROVIDERS,GOOGLE_MAPS_DIRECTIVES,AgmCoreModule} from 'angula
 import {Router,ActivatedRoute, NavigationExtras} from '@angular/router';
 
 import {Coordinates } from './coordinates';
-import {LocationService} from './locationService';
+
 import {InfoWindow} from './InfoWindow';
-import {googleMapService} from './googleMap.service';
+import {LocationService} from './googleMap.service';
 
 @Component({
 	selector:'googleMap',
 	directives: [GOOGLE_MAPS_DIRECTIVES,AgmCoreModule],
 	styleUrls: ['app/googleMap.component.css'],
 	templateUrl: 'app/googleMap.component.html',
-	providers:[googleMapService,LocationService]
+	providers:[LocationService]
 })
 
 export class googleMapComponent{ 
