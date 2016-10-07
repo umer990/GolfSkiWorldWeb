@@ -1,4 +1,3 @@
-
 import { InfoWindow } from './InfoWindow';
 export class Coordinates{
 constructor( 
