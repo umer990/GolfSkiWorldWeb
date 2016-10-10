@@ -22,6 +22,7 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       'angular2-google-maps': 'node_modules/angular2-google-maps',
+      'ng2-uploader': 'node_modules/ng2-uploader/ng2-uploader',
       'angular2-google-maps/core': 'node_modules/angular2-google-maps/core/core.umd.js',
       'directives' : 'directives/',
       // other libraries
@@ -47,6 +48,8 @@
         defaultExtension: "js"
      },  
      'node_modules/angular2-google-maps': {
+        defaultExtension: 'js'
+    }, 'node_modules/ng2-uploader': {
         defaultExtension: 'js'
     },
       'directives':{ defaultExtension: 'js' } 

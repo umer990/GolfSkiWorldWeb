@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var core_2 = require('angular2-google-maps/core');
 var http_1 = require('@angular/http');
+var ng2_uploader_1 = require('ng2-uploader');
 var app_routing_1 = require('./app.routing');
 var landing_component_1 = require('./landing.component');
 var admin_component_1 = require('./admin.component');
@@ -49,7 +50,8 @@ var AppModule = (function () {
                 movies_component_1.moviesComponent,
                 ImageModel_component_1.ImageModalComponent,
                 admin_component_1.AdminComponent,
-                awards_component_1.AwardsComponent
+                awards_component_1.AwardsComponent,
+                ng2_uploader_1.UPLOAD_DIRECTIVES
             ],
             providers: [
                 app_routing_1.appRoutingProviders

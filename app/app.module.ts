@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { AgmCoreModule} from 'angular2-google-maps/core';
 import { HttpModule, JsonpModule } from '@angular/http';
-
+import { UPLOAD_DIRECTIVES } from 'ng2-uploader';
 import { routing,
          appRoutingProviders }  from './app.routing';
 import { LandingComponent }   from './landing.component';
@@ -28,6 +28,7 @@ import {FooterComponent} from './common/footer.component';
   			routing,
         ResortModule,
   			FormsModule,
+
   			 AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAK87mrQKVrqrRPg9hSiX_L0WI6yjetGFI'
     })
@@ -41,7 +42,8 @@ import {FooterComponent} from './common/footer.component';
   				 moviesComponent,
   				 ImageModalComponent,
   				 AdminComponent,
-  				 AwardsComponent           
+  				 AwardsComponent  ,
+				   UPLOAD_DIRECTIVES        
   				 ],
  providers: [
     appRoutingProviders

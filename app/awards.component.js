@@ -12,7 +12,6 @@ var core_1 = require('@angular/core');
 var header_component_1 = require('./common/header.component');
 var awards_service_1 = require('./awards.service');
 var myGlobals = require('./constants');
-var core_2 = require('@angular/core');
 var http_1 = require('@angular/http');
 var Observable_1 = require('rxjs/Observable');
 require('rxjs/add/operator/map');
@@ -23,26 +22,77 @@ var AwardsComponent = (function () {
         this._uploadService = _uploadService;
         this.geoService = geoService;
         this.http = http;
+        this.hasBaseDropZoneOver = false;
+        this.progress = 0;
+        this.responses = [];
+        this.formdata = new FormData();
+        this.uploadEvents = new core_1.EventEmitter();
+        this.options = {
+            url: myGlobals.golfskiworld_URL + '/adventure/destination',
+            //url: 'http://test.golfskiworld.com/admin/api',
+            filterExtensions: true,
+            allowedExtensions: ['video/mp4'],
+            calculateSpeed: true,
+            autoUpload: false,
+            previewUrl: true,
+            data: {
+                site: 1,
+                user: 1,
+                mediatype: 2,
+                name: 'name',
+                description: 'User Movie from web',
+                longitude: 57.7072,
+                latitude: 11.9668
+            }
+        };
         this.PageName = "This is Awards Page";
         this.description = "Movie from web";
         this.filename = this.makeid();
         this.errorMessage = null;
         this.InProcess = false;
     }
-    //fetch policy and signature from the server
-    //If you are not familiar with ngOnInit
-    //This function gets fired at the beginning
-    //Hence this is the best place to fetch the signature and policy
     AwardsComponent.prototype.ngOnInit = function () {
-        var formdata1 = {
-            key1: 300,
-            key2: 'hello world'
-        };
-        console.log(JSON.stringify(formdata1));
-        for (var key in formdata1) {
-            console.log(key, formdata1[key]);
+        this.zone = new core_1.NgZone({ enableLongStackTrace: false });
+        //  this.upload();
+    };
+    AwardsComponent.prototype.handleUpload = function (data) {
+        var _this = this;
+        this.zone.run(function () {
+            _this.responses = data;
+            _this.progress = Math.floor(data.progress.percent / 100);
+        });
+        if (data && data.response) {
+            data = JSON.parse(data.response);
+            this.uploadFile = data;
         }
-        //  this._uploadService.getPolicy('test').subscribe(response => this.handleResponse(response) );
+    };
+    AwardsComponent.prototype.handlePreviewData = function (data) {
+        this.previewData = data;
+        this.options = {
+            url: myGlobals.golfskiworld_URL + '/adventure/destination',
+            //url: 'http://test.golfskiworld.com/admin/api',
+            filterExtensions: true,
+            allowedExtensions: ['video/mp4'],
+            calculateSpeed: true,
+            autoUpload: false,
+            previewUrl: true,
+            data: {
+                site: 1,
+                user: 1,
+                mediatype: 2,
+                name: 'name',
+                description: 'User Movie from web',
+                longitude: 57.7072,
+                latitude: 11.9668,
+                movie: data,
+            }
+        };
+    };
+    AwardsComponent.prototype.startUpload = function () {
+        this.uploadEvents.emit('startUpload');
+    };
+    AwardsComponent.prototype.fileOverBase = function (e) {
+        this.hasBaseDropZoneOver = e;
     };
     AwardsComponent.prototype.upload = function () {
         var _this = this;
@@ -54,25 +104,41 @@ var AwardsComponent = (function () {
             .subscribe(function (location) {
             _this.longitude = _this.geoService.split(location, 0);
             _this.latitude = _this.geoService.split(location, 1);
-            formdata.append('site', '1');
+            _this.options = {
+                url: myGlobals.golfskiworld_URL + '/adventure/destination',
+                //url: 'http://test.golfskiworld.com/admin/api',
+                filterExtensions: true,
+                allowedExtensions: ['video/mp4'],
+                data: {
+                    site: 1,
+                    user: 1,
+                    mediatype: 1,
+                    name: 'name',
+                    description: 'description',
+                    longitude: 57.7072,
+                    latitude: 11.9668
+                }
+            };
+            /*formdata.append('site', '1');
             formdata.append('user', '1');
             formdata.append('mediatype', '1');
             formdata.append('name', 'name');
-            formdata.append('description', _this.description);
-            formdata.append('longitude', _this.longitude);
-            formdata.append('latitude', _this.latitude);
+            formdata.append('description', this.description);
+            formdata.append('longitude', this.longitude);
+            formdata.append('latitude', this.latitude);*/
             //formdata.append('thumbnail', '');
             // formdata.append('movie', { name: this.file.name, type: 'video/mp4'});
-            console.log(formdata.get("site"));
-            console.log(formdata.get("user"));
-            console.log(formdata.get("mediatype"));
-            console.log(formdata.get("name"));
-            console.log(formdata.get("description"));
-            console.log(formdata.get("longitude"));
-            console.log(formdata.get("latitude"));
-            console.log("uri:" + _this.file + ",name:" + _this.filename);
-            xhr.open('POST', myGlobals.golfskiworld_URL + '/adventure/destination', true);
-            xhr.send(formdata);
+            /*
+             console.log(formdata.get("site"));
+             console.log(formdata.get("user"));
+             console.log(formdata.get("mediatype"));
+             console.log(formdata.get("name"));
+             console.log(formdata.get("description"));
+             console.log(formdata.get("longitude"));
+             console.log(formdata.get("latitude"));
+             console.log("uri:"+ this.file + ",name:"+this.filename)*/
+            //xhr.open('POST',myGlobals.golfskiworld_URL + '/adventure/destination',true);
+            //xhr.send(formdata);
             // this.postCall(formdata).subscribe(val => console.log(val),error => this.errorMessage = error);
         }, function (error) { return _this.errorMessage = error; });
     };
@@ -143,7 +209,7 @@ var AwardsComponent = (function () {
             directives: [header_component_1.HeaderComponent],
             providers: [awards_service_1.UploadService, googleMap_service_1.LocationService]
         }),
-        core_2.Injectable(), 
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [awards_service_1.UploadService, googleMap_service_1.LocationService, http_1.Http])
     ], AwardsComponent);
     return AwardsComponent;

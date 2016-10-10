@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component,Injectable,Input, Output, EventEmitter,NgZone } from '@angular/core';
 import {HeaderComponent} from './common/header.component';
 import {UploadService} from './awards.service';
 import myGlobals = require('./constants');
-import {Injectable} from '@angular/core';
+
 import {HTTP_PROVIDERS, Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable ,map}     from 'rxjs/Observable';
+
 import 'rxjs/add/operator/map'
 import 'rxjs/Rx',
 import {LocationService} from './googleMap.service';
@@ -19,7 +20,97 @@ import {LocationService} from './googleMap.service';
 })
 @Injectable()
 export class AwardsComponent implements OnInit{
-PageName="This is Awards Page"
+
+  
+ 
+constructor(private _uploadService: UploadService,private geoService: LocationService,private http: Http) {}
+  
+   uploadFile: any;
+   hasBaseDropZoneOver: boolean = false;    
+   private zone: NgZone;
+    private progress: number = 0;
+    private responses: any[] = [];
+    formdata: FormData = new FormData();
+    private uploadEvents: EventEmitter<any> = new EventEmitter();
+    private previewData : any;
+    options: Object={
+                url: myGlobals.golfskiworld_URL + '/adventure/destination',
+                    //url: 'http://test.golfskiworld.com/admin/api',
+                filterExtensions: true,
+                allowedExtensions: ['video/mp4'],
+                calculateSpeed: true,
+                autoUpload: false,
+                previewUrl: true,
+                data: {
+                        site: 1,
+                        user: 1,
+                        mediatype:2,
+                        name: 'name',
+                        description: 'User Movie from web',
+                        longitude:  57.7072,
+                        latitude:  11.9668         
+                            
+
+                    }
+             } ;
+
+ ngOnInit() {
+        this.zone = new NgZone({ enableLongStackTrace: false });
+      //  this.upload();
+      }
+
+ handleUpload(data: any): void {
+    this.zone.run(() => {
+    this.responses = data;
+    this.progress = Math.floor(data.progress.percent / 100);
+  
+});
+  if (data && data.response) {
+      data = JSON.parse(data.response);
+      this.uploadFile = data;
+    }
+}
+handlePreviewData(data: any): void {
+  this.previewData = data;
+
+  this.options={
+                url: myGlobals.golfskiworld_URL + '/adventure/destination',
+                    //url: 'http://test.golfskiworld.com/admin/api',
+                filterExtensions: true,
+                allowedExtensions: ['video/mp4'],
+                calculateSpeed: true,
+                autoUpload: false,
+                previewUrl: true,
+                data: {
+                        site: 1,
+                        user: 1,
+                        mediatype:2,
+                        name: 'name',
+                        description: 'User Movie from web',
+                        longitude:  57.7072,
+                        latitude:  11.9668,
+                        movie:data,
+                                
+                            
+
+                    }
+             } ;
+}
+
+startUpload() {
+  this.uploadEvents.emit('startUpload');
+}
+  fileOverBase(e:any):void {
+    this.hasBaseDropZoneOver = e;
+  }
+
+
+   
+ 
+
+   
+
+     PageName="This is Awards Page"
      policy: String;
     s3signature: String;
     file: File;
@@ -30,34 +121,6 @@ PageName="This is Awards Page"
     filename = this.makeid();
     errorMessage: string = null;
     InProcess=false;
-    
-
-constructor(private _uploadService: UploadService,private geoService: LocationService,private http: Http) {
-  
-}
- 
-
-    //fetch policy and signature from the server
-    //If you are not familiar with ngOnInit
-    //This function gets fired at the beginning
-    //Hence this is the best place to fetch the signature and policy
-    ngOnInit() {
-        var formdata1 = {
-    key1: 300,
-    key2: 'hello world'
-};
-          
-        
-        console.log(JSON.stringify(formdata1))
-        
-    
-for (var key in formdata1) {
-    console.log(key, formdata1[key]);
-   
-}
-
-      //  this._uploadService.getPolicy('test').subscribe(response => this.handleResponse(response) );
-    }
 
       upload(){
           console.log("start")
@@ -71,18 +134,37 @@ for (var key in formdata1) {
                     this.longitude = this.geoService.split(location, 0);
                     this.latitude = this.geoService.split(location, 1);
                
+        this.options={
+                url: myGlobals.golfskiworld_URL + '/adventure/destination',
+                    //url: 'http://test.golfskiworld.com/admin/api',
+                filterExtensions: true,
+                allowedExtensions: ['video/mp4'],
+                data: {
+                        site: 1,
+                        user: 1,
+                        mediatype:1,
+                        name: 'name',
+                        description: 'description',
+                        longitude:  57.7072,
+                        latitude:  11.9668
+                        
+
+                    }
+             } 
         
-        
-        formdata.append('site', '1');
+        /*formdata.append('site', '1');
         formdata.append('user', '1');
         formdata.append('mediatype', '1');
         formdata.append('name', 'name');
         formdata.append('description', this.description);
         formdata.append('longitude', this.longitude);
-        formdata.append('latitude', this.latitude);
+        formdata.append('latitude', this.latitude);*/
+       
         //formdata.append('thumbnail', '');
        // formdata.append('movie', { name: this.file.name, type: 'video/mp4'});
+           
        
+       /*
         console.log(formdata.get("site"));
         console.log(formdata.get("user"));
         console.log(formdata.get("mediatype"));
@@ -90,10 +172,10 @@ for (var key in formdata1) {
         console.log(formdata.get("description"));
         console.log(formdata.get("longitude"));
         console.log(formdata.get("latitude"));
-        console.log("uri:"+ this.file + ",name:"+this.filename)
+        console.log("uri:"+ this.file + ",name:"+this.filename)*/
 
-         xhr.open('POST',myGlobals.golfskiworld_URL + '/adventure/destination',true);
-        xhr.send(formdata);
+         //xhr.open('POST',myGlobals.golfskiworld_URL + '/adventure/destination',true);
+        //xhr.send(formdata);
       // this.postCall(formdata).subscribe(val => console.log(val),error => this.errorMessage = error);
         },
                 error => this.errorMessage = error);
