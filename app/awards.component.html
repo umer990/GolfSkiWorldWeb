@@ -16,7 +16,7 @@
                     
                 </div>
             </div>
-            <div class="header-back" >/div>
+            <div class="header-back" ></div>
         </div>
         <div class="item">
             <div class="container">
@@ -93,10 +93,13 @@ So lets go out for a golf or ski adventure and make some awsome HD videos and sh
         </div>
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
-                    <form  (ngSubmit)="onSubmit(f)" #f="ngForm" action="">
-                    <input type="file" (change)="fileEvent($event)" />
+                    This is a S3 uploader
+                    <form (ngSubmit)="upload()">
+                        <input name="file" type="file" size="60" (change)="onChange($event)"/>
+                        <input type="submit" value="Upload" />
                     </form>
-                    <button (click)="uploadfile(f)">Upload file!</button>
+                    <div class="loader" *ngIf="InProcess"></div>
+                    
             </div>
         </div>
     </div>
