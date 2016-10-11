@@ -88,17 +88,35 @@ So lets go out for a golf or ski adventure and make some awsome HD videos and sh
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">AWARD INFORMATION</h2>
+                <h2 class="section-heading">UPLOAD YOUR MOVIE</h2>
             </div>
         </div>
         <div class="row">
+            
             <div class="col-lg-10 col-lg-offset-1">
-                    This is a S3 uploader
-                    <form (ngSubmit)="upload()">
-                        <input name="file" type="file" size="60" (change)="onChange($event)"/>
-                        <input type="submit" value="Upload" />
-                    </form>
-                    <div class="loader" *ngIf="InProcess"></div>
+                  <span class="btn btn-default btn-file ">
+    Browse  <input type="file" 
+                        ngFileSelect
+                        [options]="options" 
+                        [events]="uploadEvents"
+                        (onUpload)="handleUpload($event)"
+                        (onPreviewData)="handlePreviewData($event)">
+                        </span>
+                    <p *ngIf="previewData && !response">
+                    Title of the Movie:<input type="text" >
+                    Description:<input type="text" >
+                    
+                    <span>
+                    <span class="btn btn-default btn-file ">
+                    <button class="button" (click)="startUpload()">Start Upload</button>
+                    </span>
+                    </span>
+                    <img [src]="previewData" alt="Preview Data" class="preview-img">
+                    </p>
+                    <p *ngIf="responses">
+                    {{ response | json }}
+                    </p>
+                    
                     
             </div>
         </div>
@@ -106,6 +124,14 @@ So lets go out for a golf or ski adventure and make some awsome HD videos and sh
 
 
     <!-- app.component.html
+
+
+    This is a S3 uploader
+                    <form (ngSubmit)="upload()">
+                        <input name="file" type="file" size="60" (change)="onChange($event)"/>
+                        <input type="submit" value="Upload" />
+                    </form>
+                    <div class="loader" *ngIf="InProcess"></div>
 <input type="file" 
        ngFileSelect
        [options]="options"
@@ -126,18 +152,5 @@ So lets go out for a golf or ski adventure and make some awsome HD videos and sh
 Response: {{ uploadFile | json }}
 </div>-->
 
-<input type="file" 
-       ngFileSelect
-       [options]="options" 
-       [events]="uploadEvents"
-       (onUpload)="handleUpload($event)"
-       (onPreviewData)="handlePreviewData($event)">
 
- <p *ngIf="previewData && !response">
-  <button class="button" (click)="startUpload()">Start Upload</button>
-  <img [src]="previewData" alt="Preview Data" class="preview-img">
-</p>
-<p *ngIf="responses">
-  {{ response | json }}
-</p>
 </section>

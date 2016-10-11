@@ -1,4 +1,5 @@
 import { Component ,Input, Output, View, EventEmitter} from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import {LandingComponent} from './landing.component';
 import {ImageModalComponent} from './ImageModel.component';
@@ -21,5 +22,7 @@ import {ImageModalComponent} from './ImageModel.component';
     directives:[LandingComponent,ImageModalComponent]
     })
 export class AppComponent { 
-
+constructor(
+  private route: ActivatedRoute,
+  private router: Router) {}
 }

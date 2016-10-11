@@ -9,10 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var landing_component_1 = require('./landing.component');
 var ImageModel_component_1 = require('./ImageModel.component');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(route, router) {
+        this.route = route;
+        this.router = router;
     }
     AppComponent = __decorate([
         core_1.Component({
@@ -20,7 +23,7 @@ var AppComponent = (function () {
             template: "\n    \t\t   \n   \t\t\t\t<router-outlet></router-outlet>\n                  \n    \t\t\t<a routerLink=\"/admin\">admin</a>\n    \t\t\t  \n    \t\t\t\n    \t\t\t",
             directives: [landing_component_1.LandingComponent, ImageModel_component_1.ImageModalComponent]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());
