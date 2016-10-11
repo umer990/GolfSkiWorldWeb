@@ -4,7 +4,7 @@
  */
 (function (global) {
   System.config({
-    paths: {
+    paths: { 
       // paths serve as alias
       'npm:': 'node_modules/'
     },
@@ -51,7 +51,7 @@
         defaultExtension: 'js'
     }, 'node_modules/ng2-uploader': {
         defaultExtension: 'js'
-    },
+    }, 
       'directives':{ defaultExtension: 'js' } 
     }
   });
