@@ -6,19 +6,11 @@ import { AdminComponent }   from './admin.component';
 import { AwardsComponent }   from './awards.component';
 
 const appRoutes: Routes = [
- /*{ path: '',  component: LandingComponent,
-	children: [
-		{ path: 'home',  component: LandingComponent },
-		{ path: 'awards',  component: AwardsComponent },
-		{ path: 'admin', component: AdminComponent },
-       
-		
-	]  }
-*/
-
- { path: '', component: LandingComponent, name: 'home' },
- { path: 'home', component: LandingComponent, name: 'home' },
-  { path: 'awards', component: AwardsComponent, name: 'awards' }
+  {
+     path: '',
+     redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: LandingComponent},
+  { path: 'awards', component: AwardsComponent}
 
 ];
 export const appRoutingProviders: any[] = [

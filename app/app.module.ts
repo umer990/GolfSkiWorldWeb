@@ -1,6 +1,5 @@
 import { NgModule}      from '@angular/core';
-import { LocationStrategy, HashLocationStrategy }  from '@angular/core';
-
+import { CommonModule }   from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { AgmCoreModule} from 'angular2-google-maps/core';
@@ -8,6 +7,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { UPLOAD_DIRECTIVES } from 'ng2-uploader';
 import { routing,
          appRoutingProviders }  from './app.routing';
+
 
 		 
 import { LandingComponent }   from './landing.component';
@@ -19,40 +19,36 @@ import { AwardsComponent }   from './awards.component';
 import { ImageModalComponent }   from './ImageModel.component';
 import { ResortModule }         from './resort/resort.module';
 import {HeaderComponent} from './common/header.component';
-import {FooterComponent} from './common/footer.component';
+//import {FooterComponent} from './common/footer.component';
 
 
 @NgModule({
   imports: [ 
+	  		CommonModule,
   			BrowserModule,
   			HttpModule,
   			JsonpModule,
   			routing,
-        ResortModule,
+        	ResortModule,
   			FormsModule,
-
-  			 AgmCoreModule.forRoot({
+			AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAK87mrQKVrqrRPg9hSiX_L0WI6yjetGFI'
     })
   			],
   declarations: [
             HeaderComponent,
-            FooterComponent,
-  				 AppComponent,
-           LandingComponent,
-  				 googleMapComponent,
-  				 moviesComponent,
-  				 ImageModalComponent,
-  				 AdminComponent,
-  				 AwardsComponent  ,
-				   UPLOAD_DIRECTIVES        
+            AppComponent,
+           	LandingComponent,
+  			googleMapComponent,
+  			moviesComponent,
+  			ImageModalComponent,
+  			AdminComponent,
+  			AwardsComponent  ,
+			UPLOAD_DIRECTIVES        
   				 ],
  providers: [
-    appRoutingProviders,{provide: LocationStrategy, useClass: HashLocationStrategy}
-  ],
-  bootstrap:    [ 
-	  			AppComponent ,[appRoutingProviders]
-				
-  					]
+
+ ],
+  bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -9,10 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var core_2 = require('@angular/core');
+var common_1 = require('@angular/common');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
-var core_3 = require('angular2-google-maps/core');
+var core_2 = require('angular2-google-maps/core');
 var http_1 = require('@angular/http');
 var ng2_uploader_1 = require('ng2-uploader');
 var app_routing_1 = require('./app.routing');
@@ -25,26 +25,26 @@ var awards_component_1 = require('./awards.component');
 var ImageModel_component_1 = require('./ImageModel.component');
 var resort_module_1 = require('./resort/resort.module');
 var header_component_1 = require('./common/header.component');
-var footer_component_1 = require('./common/footer.component');
+//import {FooterComponent} from './common/footer.component';
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [
+                common_1.CommonModule,
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
                 http_1.JsonpModule,
                 app_routing_1.routing,
                 resort_module_1.ResortModule,
                 forms_1.FormsModule,
-                core_3.AgmCoreModule.forRoot({
+                core_2.AgmCoreModule.forRoot({
                     apiKey: 'AIzaSyAK87mrQKVrqrRPg9hSiX_L0WI6yjetGFI'
                 })
             ],
             declarations: [
                 header_component_1.HeaderComponent,
-                footer_component_1.FooterComponent,
                 app_component_1.AppComponent,
                 landing_component_1.LandingComponent,
                 googleMap_component_1.googleMapComponent,
@@ -54,12 +54,8 @@ var AppModule = (function () {
                 awards_component_1.AwardsComponent,
                 ng2_uploader_1.UPLOAD_DIRECTIVES
             ],
-            providers: [
-                app_routing_1.appRoutingProviders, { provide: core_2.LocationStrategy, useClass: core_2.HashLocationStrategy }
-            ],
-            bootstrap: [
-                app_component_1.AppComponent, [app_routing_1.appRoutingProviders]
-            ]
+            providers: [],
+            bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
