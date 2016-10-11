@@ -13,6 +13,7 @@ var appRoutes = [
        ]  }
    */
     { path: '', component: landing_component_1.LandingComponent, name: 'home' },
+    { path: 'home', component: landing_component_1.LandingComponent, name: 'home' },
     { path: 'awards', component: awards_component_1.AwardsComponent, name: 'awards' }
 ];
 exports.appRoutingProviders = [];
