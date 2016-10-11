@@ -8,9 +8,10 @@ import { AwardsComponent }   from './awards.component';
 const appRoutes: Routes = [
   {
      path: '',
-     redirectTo: '/home', pathMatch: 'full' },
+      component: LandingComponent  },
   { path: 'home', component: LandingComponent},
   { path: 'awards', component: AwardsComponent}
+   { path: 'admin', component: AdminComponent}
 
 ];
 export const appRoutingProviders: any[] = [
