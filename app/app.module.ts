@@ -51,7 +51,8 @@ import {FooterComponent} from './common/footer.component';
     appRoutingProviders,{provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap:    [ 
-	  			AppComponent 
+	  			AppComponent ,[appRoutingProviders]
+				
   					]
 })
 export class AppModule { }

@@ -58,7 +58,7 @@ var AppModule = (function () {
                 app_routing_1.appRoutingProviders, { provide: core_2.LocationStrategy, useClass: core_2.HashLocationStrategy }
             ],
             bootstrap: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent, [app_routing_1.appRoutingProviders]
             ]
         }), 
         __metadata('design:paramtypes', [])
