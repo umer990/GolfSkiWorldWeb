@@ -1,12 +1,7 @@
-import { Component ,Input, Output, View, EventEmitter} from '@angular/core';
+import { Component ,Input, Output, View, EventEmitter,} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
+import {Routes, ROUTER_DIRECTIVES} from '@angular/router';
 import {LandingComponent} from './landing.component';
-
-
-
-
-
 
 
 @Component({
