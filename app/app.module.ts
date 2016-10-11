@@ -1,4 +1,6 @@
-import { NgModule }      from '@angular/core';
+import { NgModule}      from '@angular/core';
+import { LocationStrategy, HashLocationStrategy }  from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { AgmCoreModule} from 'angular2-google-maps/core';
@@ -6,9 +8,9 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { UPLOAD_DIRECTIVES } from 'ng2-uploader';
 import { routing,
          appRoutingProviders }  from './app.routing';
+
+		 
 import { LandingComponent }   from './landing.component';
-
-
 import { AdminComponent }   from './admin.component';
 import { AppComponent }   from './app.component';
 import { googleMapComponent}   from './googleMap.component';
@@ -46,7 +48,7 @@ import {FooterComponent} from './common/footer.component';
 				   UPLOAD_DIRECTIVES        
   				 ],
  providers: [
-    appRoutingProviders
+    appRoutingProviders,{provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap:    [ 
   					AppComponent 

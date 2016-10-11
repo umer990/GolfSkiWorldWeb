@@ -15,6 +15,7 @@ const appRoutes: Routes = [
 		
 	]  }
 */
+
  { path: '', component: LandingComponent, name: 'home' },
  { path: 'home', component: LandingComponent, name: 'home' },
   { path: 'awards', component: AwardsComponent, name: 'awards' }
