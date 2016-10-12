@@ -1,57 +1,34 @@
-import { Injectable } from '@angular/core';
+import { Injectable,ElementRef,OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable ,map}     from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 import 'rxjs/Rx'
-
+import myGlobals = require('./constants');
+declare var jQuery:any; 
 @Injectable()
 
 
 
 export class movieService{
 
-  constructor (private http: Http) {}
+  constructor (private http: Http,private _elRef:ElementRef) {}
+
+    ngOnInit():any{
+					
+              console.log(jQuery(this._elRef.nativeElement).find('.list-img').attr("src"))
+						//alert("jQuery works")
+					
+			}
 
 
-
-    private this.base_url = "http://test.golfskiworld.com/admin/api/adventure/destination"
-    getMovies1(): string[]{ 
-             return this.http.get(this.base_url)
+    getMovies(): Observable<Response>{ 
+             return this.http.get(myGlobals.Destination)
                         .map(this.extractData)
                         .catch(this.handleError);
 
                        
          }
-	getMovies(): string[]{
-	var images = [{
-        'type': 'video',
-        'url': 'https://s3.amazonaws.com/golfskiworld.com/images/destination/2016-09-10.15-58-44.949430.jpeg',
-        'thumbUrl': 'https://s3.amazonaws.com/golfskiworld.com/images/destination/2016-09-10.15-58-44.949430.jpeg'
-    }, {
-        'type': 'video',
-        'url': 'https://s3.amazonaws.com/golfskiworld.com/images/destination/2016-09-10.15-58-44.949430.jpeg',
-        'thumbUrl': 'https://s3.amazonaws.com/golfskiworld.com/images/destination/2016-09-10.15-58-44.949430.jpeg'
-    }, {
-        'type': 'video',
-        'url': 'https://www.youtube.com/watch?v=khrAhOrSZQc',
-        'thumbUrl': 'https://i.ytimg.com/vi/khrAhOrSZQc/1.jpg'
-    }, {
-        'type': 'video',
-        'url': 'https://www.youtube.com/watch?v=N7TkK2joi4I',
-        'thumbUrl': 'https://i.ytimg.com/vi/N7TkK2joi4I/1.jpg'
-    }, {
-        'url': 'https://upload.wikimedia.org/wikipedia/commons/0/07/Kamp_Alexisdorf_3.jpg',
-        'thumbUrl': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Kamp_Alexisdorf_3.jpg/120px-Kamp_Alexisdorf_3.jpg'
-    }, {
-        'type': 'video',
-        'url': 'https://www.youtube.com/watch?v=khrAhOrSZQc',
-        'thumbUrl': 'https://i.ytimg.com/vi/khrAhOrSZQc/1.jpg'
-    }];
-
-
-
-			 return images;//rest call or call something
-	}
+	
 
      private extractData(res: Response) {
         let body = res.json(); console.log(body)

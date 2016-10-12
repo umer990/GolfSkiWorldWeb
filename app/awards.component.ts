@@ -66,13 +66,22 @@ constructor(private _uploadService: UploadService,private geoService: LocationSe
   
 });
   if (data && data.response) {
+      console.log(data)
       data = JSON.parse(data.response);
       this.uploadFile = data;
     }
 }
 handlePreviewData(data: any): void {
   this.previewData = data;
-
+var video=document.createElement("video")
+video.setAttribute("scr","https://s3.amazonaws.com/golfskiworld/movies/destination/2016-10-12.08-37-46.340603.mp4")	 
+var canvas = document.createElement('canvas');
+canvas.width = 640;
+canvas.height = 480;
+var context = canvas.getContext('2d');
+context.drawImage(video, 0, 0, canvas.width, canvas.height);
+var dataURI = canvas.toDataURL('image/jpeg');
+console.log(dataURI)
   this.options={
                 url: myGlobals.golfskiworld_URL + '/adventure/destination',
                     //url: 'http://test.golfskiworld.com/admin/api',
@@ -98,7 +107,9 @@ handlePreviewData(data: any): void {
 }
 
 startUpload() {
-  this.uploadEvents.emit('startUpload');
+     console.log("upload started")
+ console.log("Upload status:"+ this.uploadEvents.emit('startUpload'));
+ 
 }
   fileOverBase(e:any):void {
     this.hasBaseDropZoneOver = e;

@@ -21,8 +21,7 @@
         <div class="item">
             <div class="container">
                 <div class="carousel-caption blank">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/87PCL-4IInQ?rel=0&amp;showinfo=0&amp;autoplay=1&amp;enablejsapi=1" frameborder="0" allowfullscreen="" id="yui_3_17_2_1_1474636042434_127" style="opacity: 1;"></iframe>
-                </div>
+                    </div>
             </div>
             <!-- Set background for slide in css -->
             <div class="header-back" >
@@ -94,6 +93,7 @@ So lets go out for a golf or ski adventure and make some awsome HD videos and sh
         <div class="row">
             
             <div class="col-lg-10 col-lg-offset-1">
+                <form>
                   <span class="btn btn-default btn-file ">
     Browse  <input type="file" 
                         ngFileSelect
@@ -103,8 +103,8 @@ So lets go out for a golf or ski adventure and make some awsome HD videos and sh
                         (onPreviewData)="handlePreviewData($event)">
                         </span>
                     <p *ngIf="previewData && !response">
-                    Title of the Movie:<input type="text" >
-                    Description:<input type="text" >
+                    Title of the Movie:<input class="form-control" type="text" id="Title" required>
+                    Description:<input type="text" class="form-control"  id="Description" required>
                     
                     <span>
                     <span class="btn btn-default btn-file ">
@@ -113,8 +113,9 @@ So lets go out for a golf or ski adventure and make some awsome HD videos and sh
                     </span>
                     <img [src]="previewData" alt="Preview Data" class="preview-img">
                     </p>
+                    </form>
                     <p *ngIf="responses">
-                    {{ response | json }}
+                    {{ data| json }}
                     </p>
                     
                     

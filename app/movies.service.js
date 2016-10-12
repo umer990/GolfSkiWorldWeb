@@ -13,42 +13,20 @@ var http_1 = require('@angular/http');
 var Observable_1 = require('rxjs/Observable');
 require('rxjs/add/operator/map');
 require('rxjs/Rx');
+var myGlobals = require('./constants');
 var movieService = (function () {
-    function movieService(http) {
+    function movieService(http, _elRef) {
         this.http = http;
-        this.base_url = "http://test.golfskiworld.com/admin/api/adventure/destination";
+        this._elRef = _elRef;
     }
-    movieService.prototype.getMovies1 = function () {
-        return this.http.get(this.base_url)
-            .map(this.extractData)
-            .catch(this.handleError);
+    movieService.prototype.ngOnInit = function () {
+        console.log(jQuery(this._elRef.nativeElement).find('.list-img').attr("src"));
+        //alert("jQuery works")
     };
     movieService.prototype.getMovies = function () {
-        var images = [{
-                'type': 'video',
-                'url': 'https://s3.amazonaws.com/golfskiworld.com/images/destination/2016-09-10.15-58-44.949430.jpeg',
-                'thumbUrl': 'https://s3.amazonaws.com/golfskiworld.com/images/destination/2016-09-10.15-58-44.949430.jpeg'
-            }, {
-                'type': 'video',
-                'url': 'https://s3.amazonaws.com/golfskiworld.com/images/destination/2016-09-10.15-58-44.949430.jpeg',
-                'thumbUrl': 'https://s3.amazonaws.com/golfskiworld.com/images/destination/2016-09-10.15-58-44.949430.jpeg'
-            }, {
-                'type': 'video',
-                'url': 'https://www.youtube.com/watch?v=khrAhOrSZQc',
-                'thumbUrl': 'https://i.ytimg.com/vi/khrAhOrSZQc/1.jpg'
-            }, {
-                'type': 'video',
-                'url': 'https://www.youtube.com/watch?v=N7TkK2joi4I',
-                'thumbUrl': 'https://i.ytimg.com/vi/N7TkK2joi4I/1.jpg'
-            }, {
-                'url': 'https://upload.wikimedia.org/wikipedia/commons/0/07/Kamp_Alexisdorf_3.jpg',
-                'thumbUrl': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Kamp_Alexisdorf_3.jpg/120px-Kamp_Alexisdorf_3.jpg'
-            }, {
-                'type': 'video',
-                'url': 'https://www.youtube.com/watch?v=khrAhOrSZQc',
-                'thumbUrl': 'https://i.ytimg.com/vi/khrAhOrSZQc/1.jpg'
-            }];
-        return images; //rest call or call something
+        return this.http.get(myGlobals.Destination)
+            .map(this.extractData)
+            .catch(this.handleError);
     };
     movieService.prototype.extractData = function (res) {
         var body = res.json();
@@ -65,7 +43,7 @@ var movieService = (function () {
     };
     movieService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, core_1.ElementRef])
     ], movieService);
     return movieService;
 }());

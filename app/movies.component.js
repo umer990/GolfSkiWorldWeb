@@ -12,8 +12,9 @@ var core_1 = require('@angular/core');
 var movies_service_1 = require('./movies.service');
 var ImageModel_component_1 = require('./ImageModel.component');
 var moviesComponent = (function () {
-    function moviesComponent(moviesService) {
+    function moviesComponent(moviesService, _elRef) {
         var _this = this;
+        this._elRef = _elRef;
         this.slidesLoaded = false;
         this.openModalWindow = false;
         this.images = [];
@@ -29,11 +30,31 @@ var moviesComponent = (function () {
             }
             this.slidesLoaded = true;
         };
-        moviesService.getMovies1()
+        moviesService.getMovies()
             .subscribe(function (data) { return _this.addImages(data); }),
             function (error) { return alert(error); },
             function () { return console.log("Date get finished"); };
     }
+    moviesComponent.prototype.ngOnInit = function () {
+        var video = document.createElement("video");
+        video.setAttribute("scr", "https://s3.amazonaws.com/golfskiworld/movies/destination/2016-10-12.08-37-46.340603.mp4");
+        var canvas = document.createElement('canvas');
+        canvas.width = 640;
+        canvas.height = 480;
+        var context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        this.dataURI = canvas.toDataURL('image/jpeg');
+        console.log(this.dataURI);
+        /*	var video="https://s3.amazonaws.com/golfskiworld/movies/destination/2016-10-12.08-37-46.340603.mp4"
+            var can=this.renderer.createElement(this._elRef.nativeElement, "canvas");
+            var ctx=can.getContext("2d");
+            can.width="50px"
+          can.height="50px"
+          ctx.drawImage(video, 0, 0, '50px', '50px');
+          */
+        console.log(jQuery(this._elRef.nativeElement).find('.list-img'));
+        //alert("jQuery works")
+    };
     moviesComponent.prototype.OpenImageModel = function (imageSrc, images) {
         //alert('OpenImages');
         var imageModalPointer;
@@ -55,10 +76,10 @@ var moviesComponent = (function () {
         core_1.Component({
             selector: 'movies',
             directives: [ImageModel_component_1.ImageModalComponent],
-            template: "\n\t\t\t<div  class=\"col-lg-10 col-lg-offset-1\">\n\t\t\tmovies\n\t\t\t\t<div *ngIf=\"slidesLoaded\">\n            <div  *ngFor=\"let img of images; let i= index\"> \n\t\t\t\t\t\t\t<div class=\"float-left\" *ngIf=\"i <= 2\" >\n\t\t\t\t\t\t\t\t<a class=\"more\" *ngIf=\"i==2\" (click)=\"OpenImageModel(img.img,images)\"> +{{images.length - 3}} more </a> \n\t\t\t\t\t\t\t\t<img class=\"list-img\" src=\"{{img.thumb}}\"(click)=\"OpenImageModel(img.img,images)\" alt='Image' />\n\t\t\t\t\t\t\t</div>\n\t\t      </div>\n\t\t\t\t\t</div>\n\t\t    <div *ngIf=\"openModalWindow\">\n\t\t        <ImageModal1 [modalImages]=\"images\" [imagePointer] = \"imagePointer\" (cancelEvent) =\"cancelImageModel()\"></ImageModal1>\n\t\t    </div>\n                    \n            </div>\n\n\n\t\t\t\n\t\t\t",
+            template: "\n\t\t\t<div  class=\"col-lg-10 col-lg-offset-1\">\n\t\t\t\n\t\t\t\t<div *ngIf=\"slidesLoaded\">\n\t\t\t\t\t<div  *ngFor=\"let img of images; let i= index\"> \n\t\t\t\t\t\t\t\t\t<div class=\"float-left\" *ngIf=\"i <= 2\" >\n\t\t\t\t\t\t\t\t\t\t<a class=\"more\" *ngIf=\"i==2\" (click)=\"OpenImageModel(img.img,images)\"> +{{images.length - 3}} more </a> \n\t\t\t\t\t\t\t\t\t\t<img class=\"list-img\" [src]=\"dataURI\" (click)=\"OpenImageModel(img.img,images)\" alt='Image' />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"openModalWindow\">\n\t\t\t\t\t<ImageModal1 [modalImages]=\"images\" [imagePointer] = \"imagePointer\" (cancelEvent) =\"cancelImageModel()\"></ImageModal1>\n\t\t\t\t</div>\n                    \n            </div>\n\n\n\t\t\t\n\t\t\t",
             providers: [movies_service_1.movieService]
         }), 
-        __metadata('design:paramtypes', [movies_service_1.movieService])
+        __metadata('design:paramtypes', [movies_service_1.movieService, core_1.ElementRef])
     ], moviesComponent);
     return moviesComponent;
 }());
