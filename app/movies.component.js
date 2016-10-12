@@ -33,18 +33,23 @@ var moviesComponent = (function () {
         moviesService.getMovies()
             .subscribe(function (data) { return _this.addImages(data); }),
             function (error) { return alert(error); },
-            function () { return console.log("Date get finished"); };
+            function () { return console.log("movieService finished"); };
     }
-    moviesComponent.prototype.ngOnInit = function () {
+    //dataUri:any;
+    moviesComponent.prototype.createThumbnail = function (vdoURL) {
         var video = document.createElement("video");
-        video.setAttribute("scr", "https://s3.amazonaws.com/golfskiworld/movies/destination/2016-10-12.08-37-46.340603.mp4");
+        vdoURL = "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v";
+        video.setAttribute("scr", vdoURL);
         var canvas = document.createElement('canvas');
-        canvas.width = 640;
-        canvas.height = 480;
+        canvas.width = 40;
+        canvas.height = 40;
         var context = canvas.getContext('2d');
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        this.dataURI = canvas.toDataURL('image/jpeg');
-        console.log(this.dataURI);
+        context.drawImage(video, 0, 3, canvas.width, canvas.height);
+        var dataURI = canvas.toDataURL('image/jpeg');
+        //console.log(dataURI)
+        return dataURI;
+    };
+    moviesComponent.prototype.ngOnInit = function () {
         /*	var video="https://s3.amazonaws.com/golfskiworld/movies/destination/2016-10-12.08-37-46.340603.mp4"
             var can=this.renderer.createElement(this._elRef.nativeElement, "canvas");
             var ctx=can.getContext("2d");
@@ -52,7 +57,7 @@ var moviesComponent = (function () {
           can.height="50px"
           ctx.drawImage(video, 0, 0, '50px', '50px');
           */
-        console.log(jQuery(this._elRef.nativeElement).find('.list-img'));
+        //	console.log(jQuery(this._elRef.nativeElement).find('.list-img'));
         //alert("jQuery works")
     };
     moviesComponent.prototype.OpenImageModel = function (imageSrc, images) {
@@ -61,7 +66,6 @@ var moviesComponent = (function () {
         for (var i = 0; i < images.length; i++) {
             if (imageSrc === images[i].img) {
                 imageModalPointer = i;
-                console.log('jhhl', i);
                 break;
             }
         }
@@ -76,7 +80,7 @@ var moviesComponent = (function () {
         core_1.Component({
             selector: 'movies',
             directives: [ImageModel_component_1.ImageModalComponent],
-            template: "\n\t\t\t<div  class=\"col-lg-10 col-lg-offset-1\">\n\t\t\t\n\t\t\t\t<div *ngIf=\"slidesLoaded\">\n\t\t\t\t\t<div  *ngFor=\"let img of images; let i= index\"> \n\t\t\t\t\t\t\t\t\t<div class=\"float-left\" *ngIf=\"i <= 2\" >\n\t\t\t\t\t\t\t\t\t\t<a class=\"more\" *ngIf=\"i==2\" (click)=\"OpenImageModel(img.img,images)\"> +{{images.length - 3}} more </a> \n\t\t\t\t\t\t\t\t\t\t<img class=\"list-img\" [src]=\"dataURI\" (click)=\"OpenImageModel(img.img,images)\" alt='Image' />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"openModalWindow\">\n\t\t\t\t\t<ImageModal1 [modalImages]=\"images\" [imagePointer] = \"imagePointer\" (cancelEvent) =\"cancelImageModel()\"></ImageModal1>\n\t\t\t\t</div>\n                    \n            </div>\n\n\n\t\t\t\n\t\t\t",
+            template: "\n\t\t\t<div  class=\"col-lg-10 col-lg-offset-1\">\n\t\t\t\n\t\t\t\t<div *ngIf=\"slidesLoaded\">\n\t\t\t\t\t<div  *ngFor=\"let img of images; let i= index\"> \n\t\t\t\t\t\t\t\t\t<div class=\"float-left\" *ngIf=\"i <= 2\" >\n\t\t\t\t\t\t\t\t\t\t<a class=\"more\" *ngIf=\"i==2\" (click)=\"OpenImageModel(img.img,images)\"> +{{images.length - 3}} more </a> \n\t\t\t\t\t\t\t\t\t\t<img *ngIf='img.movie==\"\"' class=\"list-img\" src=\"{{img.thumb}}\" (click)=\"OpenImageModel(img.img,images)\" alt='Image' />\n\t\t\t\t\t\t\t\t\t\t<img *ngIf='img.movie!=\"\"' class=\"list-img\" src=\"{{createThumbnail(img.movie)}}\" id='{{img.mediatype_id}}' (click)=\"OpenImageModel(img.img,images)\" alt='Image' />\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"openModalWindow\">\n\t\t\t\t\t<ImageModal1 [modalImages]=\"images\" [imagePointer] = \"imagePointer\" (cancelEvent) =\"cancelImageModel()\"></ImageModal1>\n\t\t\t\t</div>\n                    \n            </div>\n\n\n\t\t\t\n\t\t\t",
             providers: [movies_service_1.movieService]
         }), 
         __metadata('design:paramtypes', [movies_service_1.movieService, core_1.ElementRef])

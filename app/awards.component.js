@@ -31,7 +31,7 @@ var AwardsComponent = (function () {
             url: myGlobals.golfskiworld_URL + '/adventure/destination',
             //url: 'http://test.golfskiworld.com/admin/api',
             filterExtensions: true,
-            allowedExtensions: ['video/mp4'],
+            allowedExtensions: ['video/mp4', 'video/m4v'],
             calculateSpeed: true,
             autoUpload: false,
             previewUrl: true,
@@ -69,20 +69,11 @@ var AwardsComponent = (function () {
     };
     AwardsComponent.prototype.handlePreviewData = function (data) {
         this.previewData = data;
-        var video = document.createElement("video");
-        video.setAttribute("scr", "https://s3.amazonaws.com/golfskiworld/movies/destination/2016-10-12.08-37-46.340603.mp4");
-        var canvas = document.createElement('canvas');
-        canvas.width = 640;
-        canvas.height = 480;
-        var context = canvas.getContext('2d');
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        var dataURI = canvas.toDataURL('image/jpeg');
-        console.log(dataURI);
         this.options = {
-            url: myGlobals.golfskiworld_URL + '/adventure/destination',
+            url: myGlobals.Destination,
             //url: 'http://test.golfskiworld.com/admin/api',
             filterExtensions: true,
-            allowedExtensions: ['video/mp4'],
+            allowedExtensions: ['video/mp4', 'video/m4v'],
             calculateSpeed: true,
             autoUpload: false,
             previewUrl: true,
