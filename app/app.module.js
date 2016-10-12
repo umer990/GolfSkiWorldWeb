@@ -16,6 +16,7 @@ var core_2 = require('angular2-google-maps/core');
 var http_1 = require('@angular/http');
 var ng2_uploader_1 = require('ng2-uploader');
 var app_routing_1 = require('./app.routing');
+var common_2 = require('@angular/common');
 var landing_component_1 = require('./landing.component');
 var admin_component_1 = require('./admin.component');
 var app_component_1 = require('./app.component');
@@ -54,7 +55,8 @@ var AppModule = (function () {
                 awards_component_1.AwardsComponent,
                 ng2_uploader_1.UPLOAD_DIRECTIVES
             ],
-            providers: [],
+            providers: [{ provide: common_2.LocationStrategy, useClass: common_2.HashLocationStrategy }
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

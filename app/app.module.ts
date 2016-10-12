@@ -7,6 +7,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { UPLOAD_DIRECTIVES } from 'ng2-uploader';
 import { routing,
          appRoutingProviders }  from './app.routing';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 		 
@@ -46,7 +47,7 @@ import {HeaderComponent} from './common/header.component';
   			AwardsComponent  ,
 			UPLOAD_DIRECTIVES        
   				 ],
- providers: [
+ providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}
 
  ],
   bootstrap:    [ AppComponent ]
