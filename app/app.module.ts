@@ -47,7 +47,7 @@ import {HeaderComponent} from './common/header.component';
   			AwardsComponent  ,
 			UPLOAD_DIRECTIVES        
   				 ],
- providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}
+ providers: [appRoutingProviders,{provide: LocationStrategy, useClass: HashLocationStrategy}
 
  ],
   bootstrap:    [ AppComponent ]

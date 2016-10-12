@@ -55,7 +55,7 @@ var AppModule = (function () {
                 awards_component_1.AwardsComponent,
                 ng2_uploader_1.UPLOAD_DIRECTIVES
             ],
-            providers: [{ provide: common_2.LocationStrategy, useClass: common_2.HashLocationStrategy }
+            providers: [app_routing_1.appRoutingProviders, { provide: common_2.LocationStrategy, useClass: common_2.HashLocationStrategy }
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
