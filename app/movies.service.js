@@ -15,14 +15,9 @@ require('rxjs/add/operator/map');
 require('rxjs/Rx');
 var myGlobals = require('./constants');
 var movieService = (function () {
-    function movieService(http, _elRef) {
+    function movieService(http) {
         this.http = http;
-        this._elRef = _elRef;
     }
-    movieService.prototype.ngOnInit = function () {
-        console.log(jQuery(this._elRef.nativeElement).find('.list-img').attr("src"));
-        //alert("jQuery works")
-    };
     movieService.prototype.getMovies = function () {
         return this.http.get(myGlobals.Destination)
             .map(this.extractData)
@@ -30,7 +25,6 @@ var movieService = (function () {
     };
     movieService.prototype.extractData = function (res) {
         var body = res.json();
-        console.log(body);
         return body["destinations"] || {};
     };
     movieService.prototype.handleError = function (error) {
@@ -43,7 +37,7 @@ var movieService = (function () {
     };
     movieService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http, core_1.ElementRef])
+        __metadata('design:paramtypes', [http_1.Http])
     ], movieService);
     return movieService;
 }());

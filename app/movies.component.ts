@@ -15,15 +15,16 @@ declare var jQuery:any;
  directives:[ImageModalComponent],
  
 	template:`
-			<div  class="col-lg-10 col-lg-offset-1">
+			<div  class="col-lg-10 col-lg-offset-1" >
 			
 				<div *ngIf="slidesLoaded">
 					<div  *ngFor="let img of images; let i= index"> 
-									<div class="float-left" *ngIf="i <= 2" >
+									<div class="float-left"*ngIf="i <= 2" >
 										<a class="more" *ngIf="i==2" (click)="OpenImageModel(img.img,images)"> +{{images.length - 3}} more </a> 
-										<img *ngIf='img.movie==""' class="list-img" src="{{img.thumb}}" (click)="OpenImageModel(img.img,images)" alt='Image' />
-										<img *ngIf='img.movie!=""' class="list-img" src="{{createThumbnail(img.movie)}}" id='{{img.mediatype_id}}' (click)="OpenImageModel(img.img,images)" alt='Image' />
-									
+									<div class="list-img"  style="width:250px; background: black;" >
+										<img *ngIf='img.type=="image"' style="width:100% !important;height:100% !important" src="{{img.thumb}}" (click)="OpenImageModel(img.img,images)" alt='Image' />
+										<video *ngIf='img.type=="video"'style="height:100% !important;width:100% !important"  class="" src="{{img.img}}" id='{{img.mediatype_id}}'  (click)="OpenImageModel(img.img,images)" alt='Image' ></video>
+									</div>
 									</div>
 					</div>
 				</div>
@@ -51,15 +52,22 @@ images=[];
 
 //dataUri:any;
 createThumbnail(vdoURL){
+	
+	console.log("video Url:"+ vdoURL)
 	var video=document.createElement("video")
-	vdoURL="http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v"
-	video.setAttribute("scr",vdoURL)	 
 	var canvas = document.createElement('canvas');
-	canvas.width = 40;
-	canvas.height =40;
 	var context = canvas.getContext('2d');
-	context.drawImage(video, 0, 3, canvas.width, canvas.height);
+	
+	canvas.width =20;
+	canvas.height =20;
+	
+	video.setAttribute("scr",vdoURL)
+	video.play();
+	setTimeout(function() {  	
+	context.drawImage(video, 0, 0, canvas.width, canvas.height);
+	},3000)	
 	var dataURI = canvas.toDataURL('image/jpeg');
+		
 	//console.log(dataURI)
 	return dataURI;
 }
@@ -74,29 +82,20 @@ constructor(moviesService: movieService,private _elRef:ElementRef){
 }
 
 ngOnInit():any{
-
-/*	var video="https://s3.amazonaws.com/golfskiworld/movies/destination/2016-10-12.08-37-46.340603.mp4"	 
-    var can=this.renderer.createElement(this._elRef.nativeElement, "canvas");
-	var ctx=can.getContext("2d");
-	can.width="50px"
-  can.height="50px"
-  ctx.drawImage(video, 0, 0, '50px', '50px');
-  */
-	//	console.log(jQuery(this._elRef.nativeElement).find('.list-img'));
-						//alert("jQuery works")
 			}
 
 addImages=function(data){
-					console.log(data)
+					console.log("Raw Movies:" + JSON.stringify(data))
 				for (var i = 0; i < data.length; i++)
 				                        {
 				                        var destination = data[i];
 				                        	this.images.push({
 				                        			'type': !destination.movie ? 'image' : 'video',   
-				                                    'thumb':!destination.movie ? destination.thumbnail : destination.movie,                
-				                                    'img':!destination.thumbnail ? destination.movie : destination.thumbnail                                  
+				                                    'thumb':!destination.movie ? destination.thumbnail: this.createThumbnail(destination.movie)  ,                
+				                                    'img':!destination.thumbnail ? destination.movie : destination.thumbnail,                                  
 				                                })
 				                                }
+																				console.log("slides loaded:" + JSON.stringify(this.images))
 																				this.slidesLoaded=true;
 				}
 

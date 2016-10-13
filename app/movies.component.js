@@ -19,15 +19,16 @@ var moviesComponent = (function () {
         this.openModalWindow = false;
         this.images = [];
         this.addImages = function (data) {
-            console.log(data);
+            console.log("Raw Movies:" + JSON.stringify(data));
             for (var i = 0; i < data.length; i++) {
                 var destination = data[i];
                 this.images.push({
                     'type': !destination.movie ? 'image' : 'video',
-                    'thumb': !destination.movie ? destination.thumbnail : destination.movie,
-                    'img': !destination.thumbnail ? destination.movie : destination.thumbnail
+                    'thumb': !destination.movie ? destination.thumbnail : this.createThumbnail(destination.movie),
+                    'img': !destination.thumbnail ? destination.movie : destination.thumbnail,
                 });
             }
+            console.log("slides loaded:" + JSON.stringify(this.images));
             this.slidesLoaded = true;
         };
         moviesService.getMovies()
@@ -37,28 +38,22 @@ var moviesComponent = (function () {
     }
     //dataUri:any;
     moviesComponent.prototype.createThumbnail = function (vdoURL) {
+        console.log("video Url:" + vdoURL);
         var video = document.createElement("video");
-        vdoURL = "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v";
-        video.setAttribute("scr", vdoURL);
         var canvas = document.createElement('canvas');
-        canvas.width = 40;
-        canvas.height = 40;
         var context = canvas.getContext('2d');
-        context.drawImage(video, 0, 3, canvas.width, canvas.height);
+        canvas.width = 20;
+        canvas.height = 20;
+        video.setAttribute("scr", vdoURL);
+        video.play();
+        setTimeout(function () {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        }, 3000);
         var dataURI = canvas.toDataURL('image/jpeg');
         //console.log(dataURI)
         return dataURI;
     };
     moviesComponent.prototype.ngOnInit = function () {
-        /*	var video="https://s3.amazonaws.com/golfskiworld/movies/destination/2016-10-12.08-37-46.340603.mp4"
-            var can=this.renderer.createElement(this._elRef.nativeElement, "canvas");
-            var ctx=can.getContext("2d");
-            can.width="50px"
-          can.height="50px"
-          ctx.drawImage(video, 0, 0, '50px', '50px');
-          */
-        //	console.log(jQuery(this._elRef.nativeElement).find('.list-img'));
-        //alert("jQuery works")
     };
     moviesComponent.prototype.OpenImageModel = function (imageSrc, images) {
         //alert('OpenImages');
@@ -80,7 +75,7 @@ var moviesComponent = (function () {
         core_1.Component({
             selector: 'movies',
             directives: [ImageModel_component_1.ImageModalComponent],
-            template: "\n\t\t\t<div  class=\"col-lg-10 col-lg-offset-1\">\n\t\t\t\n\t\t\t\t<div *ngIf=\"slidesLoaded\">\n\t\t\t\t\t<div  *ngFor=\"let img of images; let i= index\"> \n\t\t\t\t\t\t\t\t\t<div class=\"float-left\" *ngIf=\"i <= 2\" >\n\t\t\t\t\t\t\t\t\t\t<a class=\"more\" *ngIf=\"i==2\" (click)=\"OpenImageModel(img.img,images)\"> +{{images.length - 3}} more </a> \n\t\t\t\t\t\t\t\t\t\t<img *ngIf='img.movie==\"\"' class=\"list-img\" src=\"{{img.thumb}}\" (click)=\"OpenImageModel(img.img,images)\" alt='Image' />\n\t\t\t\t\t\t\t\t\t\t<img *ngIf='img.movie!=\"\"' class=\"list-img\" src=\"{{createThumbnail(img.movie)}}\" id='{{img.mediatype_id}}' (click)=\"OpenImageModel(img.img,images)\" alt='Image' />\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"openModalWindow\">\n\t\t\t\t\t<ImageModal1 [modalImages]=\"images\" [imagePointer] = \"imagePointer\" (cancelEvent) =\"cancelImageModel()\"></ImageModal1>\n\t\t\t\t</div>\n                    \n            </div>\n\n\n\t\t\t\n\t\t\t",
+            template: "\n\t\t\t<div  class=\"col-lg-10 col-lg-offset-1\" >\n\t\t\t\n\t\t\t\t<div *ngIf=\"slidesLoaded\">\n\t\t\t\t\t<div  *ngFor=\"let img of images; let i= index\"> \n\t\t\t\t\t\t\t\t\t<div class=\"float-left\"*ngIf=\"i <= 2\" >\n\t\t\t\t\t\t\t\t\t\t<a class=\"more\" *ngIf=\"i==2\" (click)=\"OpenImageModel(img.img,images)\"> +{{images.length - 3}} more </a> \n\t\t\t\t\t\t\t\t\t<div class=\"list-img\"  style=\"width:250px; background: black;\" >\n\t\t\t\t\t\t\t\t\t\t<img *ngIf='img.type==\"image\"' style=\"width:100% !important;height:100% !important\" src=\"{{img.thumb}}\" (click)=\"OpenImageModel(img.img,images)\" alt='Image' />\n\t\t\t\t\t\t\t\t\t\t<video *ngIf='img.type==\"video\"'style=\"height:100% !important;width:100% !important\"  class=\"\" src=\"{{img.img}}\" id='{{img.mediatype_id}}'  (click)=\"OpenImageModel(img.img,images)\" alt='Image' ></video>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"openModalWindow\">\n\t\t\t\t\t<ImageModal1 [modalImages]=\"images\" [imagePointer] = \"imagePointer\" (cancelEvent) =\"cancelImageModel()\"></ImageModal1>\n\t\t\t\t</div>\n                    \n            </div>\n\n\n\t\t\t\n\t\t\t",
             providers: [movies_service_1.movieService]
         }), 
         __metadata('design:paramtypes', [movies_service_1.movieService, core_1.ElementRef])
