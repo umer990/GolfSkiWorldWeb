@@ -20,6 +20,7 @@ import { AwardsComponent }   from './awards.component';
 import { ImageModalComponent }   from './ImageModel.component';
 import { ResortModule }         from './resort/resort.module';
 import {HeaderComponent} from './common/header.component';
+import { FlightCheckOut }  from './CheckOut';
 //import {FooterComponent} from './common/footer.component';
 
 
@@ -45,6 +46,7 @@ import {HeaderComponent} from './common/header.component';
   			ImageModalComponent,
   			AdminComponent,
   			AwardsComponent  ,
+			  FlightCheckOut,
 			UPLOAD_DIRECTIVES        
   				 ],
  providers: [appRoutingProviders,{provide: LocationStrategy, useClass: HashLocationStrategy}

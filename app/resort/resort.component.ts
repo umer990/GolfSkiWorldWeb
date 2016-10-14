@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
+
 @Component({
   selector: 'resort',
   templateUrl: 'app/resort/resort.component.html',

@@ -9,14 +9,15 @@ import 'rxjs/Rx';
 @Component({
     selector: 'deals',
     templateUrl: 'app/resort/resort-deals.component.html',
-  
+   // providers: [DealService],
     styleUrls: ['app/resort/resort-deals.component.css']
 })
 export class DealsComponent implements OnInit{ 
 
 constructor(
     private route: ActivatedRoute,
-    private router: Router) {}
+    private router: Router
+    ) {}
 
 
 	ngOnInit() {

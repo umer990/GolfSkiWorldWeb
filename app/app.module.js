@@ -26,6 +26,7 @@ var awards_component_1 = require('./awards.component');
 var ImageModel_component_1 = require('./ImageModel.component');
 var resort_module_1 = require('./resort/resort.module');
 var header_component_1 = require('./common/header.component');
+var CheckOut_1 = require('./CheckOut');
 //import {FooterComponent} from './common/footer.component';
 var AppModule = (function () {
     function AppModule() {
@@ -53,6 +54,7 @@ var AppModule = (function () {
                 ImageModel_component_1.ImageModalComponent,
                 admin_component_1.AdminComponent,
                 awards_component_1.AwardsComponent,
+                CheckOut_1.FlightCheckOut,
                 ng2_uploader_1.UPLOAD_DIRECTIVES
             ],
             providers: [app_routing_1.appRoutingProviders, { provide: common_2.LocationStrategy, useClass: common_2.HashLocationStrategy }

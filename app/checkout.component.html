@@ -1,0 +1,183 @@
+<form *ngIf="item !=null">
+   <table style="width:100%">
+   <tr style="width:100%">
+      <td style="width:70%">
+         <div class="panel panel-default">
+            <div class="panel-heading">Passager Info</div>
+            <div class="panel-body">
+            <!-- for adults-->
+            <ul class="list-group">
+            <li *ngFor="let person of order.adults" class="list-group-item">
+               <div class="row">
+                  <div class="col-xs-4">
+                     <div class="form-group">
+                        <label for="firstname">First Name:</label>
+                        <input type="text" class="form-control" id="firstname" [(ngModel)]="person.firstName" [ngModelOptions]="{standalone: true}" placeholder="First Name">
+                     </div>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="form-group">
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" class="form-control" id="lastname" [(ngModel)]="person.lastName" placeholder="Last Name" [ngModelOptions]="{standalone: true}">
+                     </div>
+                  </div>
+                  <div class="col-xs-2">
+                     <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" [(ngModel)]="person.gender" class="form-control">
+                           <option value="man">Man</option>
+                           <option value="woman">Woman</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               </li>
+                </ul>
+                <!-- for children-->
+                  <ul class="list-group">
+            <li *ngFor="let person of order.children" class="list-group-item">
+                 <div class="row">
+                  <div class="col-xs-4">
+                     <div class="form-group">
+                        <label for="firstname">First Name:</label>
+                        <input type="text" class="form-control" id="firstname" [(ngModel)]="person.firstName" placeholder="First Name" name="first">
+                     </div>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="form-group">
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" class="form-control" id="lastname" [(ngModel)]="person.lastName" placeholder="Last Name" name="last">
+                     </div>
+                  </div>
+                  <div class="col-xs-2">
+                     <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" [(ngModel)]="person.gender" class="form-control">
+                           <option value="man">Man</option>
+                           <option value="woman">Woman</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               </li>
+                </ul>
+
+            </div>
+         </div>
+         <div class="panel panel-default">
+            <div class="panel-heading">Contact Info</div>
+            <div class="panel-body">
+               <div class="row">
+                  <div class="col-xs-4">
+                     <div class="form-group">
+                        <label for="mobil">Mobile:</label>
+                        <input type="text" class="form-control" id="Mobile" >
+                     </div>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="form-group">
+                        <label for="hometelephone">Home Telephone:</label>
+                        <input type="text" class="form-control" id="hometelephone" >
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </td>
+      <td style="width:30%">
+         <div class="panel panel-default">
+            <div class="panel-heading">Price Info</div>
+            <div class="panel-body">
+            <div>
+                <h5 style="color: #00a9e0;font-size: 18px;text-transform: uppercase;margin-bottom: 0;">OutBound</h5>
+                <p>{{item.out_departs_at}}</p>
+                <ul *ngIf="item.outFlights!=null" class="list-group">
+                    <li *ngFor="let flight of item.outFlights" class="list-group-item">
+                        <div>
+                            <div>
+                                <!--logo-->
+                                <div style="position: absolute;display: block; width: 30px;height: 30px;margin-top: 30px;">{{flight.marketing_airline}}</div>
+                                <!--departure-->
+                                <div style=" display: inline-block; position: relative;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 21px;text-align: right;padding-left: 40px; clear: left; font-weight: bold;float: left; margin-top: 8px;">{{flight.departs_at}}</div>
+                                <!--Airport-->
+                                <div style=" display: block;   float: left;font-family: 'verdana',Verdana,sans-serif;font-size: 12px;font-weight: bold;color: #555555; padding: 0 0 15px 15px;">{{flight.origin.airport}}</div>
+                                <!--line-->
+                                <div style="border-top: 1px solid #e6e6e6;position: absolute;padding-left: 410px;margin: 43px 0 0 40px;"></div>
+                                <!--arrival-->
+                                <div style="display: inline-block;position: relative;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 21px;text-align: right;padding-left: 40px;clear: left;font-weight: bold;float: left;margin-top: 8px;">{{flight.arrives_at}}</div>
+                                <!--Airport-->
+                                <div style=" display: block;   float: left;font-family: 'verdana',Verdana,sans-serif;font-size: 12px;font-weight: bold;color: #555555;padding: 0 0 15px 15px;">{{flight.destination.airport}} T{{flight.destination.terminal}}</div>
+                            </div>
+                            <!--AdditionInfo-->
+                            <div style="clear: both;font-size: 12px;opacity: 0.7;font-family: Verdana,sans-serif;">Flight #: {{flight.marketing_airline}} {{flight.flight_number}} | aircraft type: {{flight.aircraft}} | operated by: {{flight.operating_airline}}</div>
+                        </div>
+                        <div style="clear: both; font-size: 11px; opacity: 0.7;filter: alpha(opacity=70); font-family: Verdana,sans-serif;">{{flight.booking_info.travel_class}} class | {{flight.booking_info.seats_remaining}} seats remaining</div>
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="item.inFlights!=null">
+                <h5 style="color: #00a9e0;font-size: 18px;text-transform: uppercase;margin-bottom: 0;">InBound</h5>
+                <p>{{item.in_departs_at}}</p>
+                <ul class="list-group">
+                    <li *ngFor="let flight of item.outFlights" class="list-group-item">
+                        <div>
+                            <div>
+                                <!--logo-->
+                                <div style="position: absolute;display: block; width: 30px;height: 30px;margin-top: 30px;">{{flight.marketing_airline}}</div>
+                                <!--departure-->
+                                <div style=" display: inline-block; position: relative;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 21px;text-align: right;padding-left: 40px; clear: left; font-weight: bold;float: left; margin-top: 8px;">{{flight.departs_at}}</div>
+                                <!--Airport-->
+                                <div style=" display: block;   float: left;font-family: 'verdana',Verdana,sans-serif;font-size: 12px;font-weight: bold;color: #555555; padding: 0 0 15px 15px;">{{flight.origin.airport}}</div>
+                                <!--line-->
+                                <div style="border-top: 1px solid #e6e6e6;position: absolute;padding-left: 410px;margin: 43px 0 0 40px;"></div>
+                                <!--arrival-->
+                                <div style="display: inline-block;position: relative;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 21px;text-align: right;padding-left: 40px;clear: left;font-weight: bold;float: left;margin-top: 8px;">{{flight.arrives_at}}</div>
+                                <!--Airport-->
+                                <div style=" display: block;   float: left;font-family: 'verdana',Verdana,sans-serif;font-size: 12px;font-weight: bold;color: #555555;padding: 0 0 15px 15px;">{{flight.destination.airport}} T{{flight.destination.terminal}}</div>
+                            </div>
+                            <!--AdditionInfo-->
+                            <div style="clear: both;font-size: 12px;opacity: 0.7;font-family: Verdana,sans-serif;">Flight #: {{flight.marketing_airline}} {{flight.flight_number}} | aircraft type: {{flight.aircraft}} | operated by: {{flight.operating_airline}}</div>
+                        </div>
+                        <div style="clear: both; font-size: 11px; opacity: 0.7;filter: alpha(opacity=70); font-family: Verdana,sans-serif;">{{flight.booking_info.travel_class}} class | {{flight.booking_info.seats_remaining}} seats remaining</div>
+                    </li>
+                </ul>
+            </div>
+<!-- price info section -->
+            <div *ngIf="item.fare!=null">
+                  <div  *ngIf="item.fare.price_per_adult!=null" class="form-group">
+                        <label for="price_per_adult">Adult:</label>
+                        <label  id="price_per_adult">{{item.fare.price_per_adult.total_fare}}</label>
+                     </div>
+
+                      <div *ngIf="item.fare.price_per_child!=null" class="form-group">
+                        <label for="price_per_child">Child:</label>
+                        <label   id="price_per_child">{{item.price_per_child.total_fare}}</label>
+                     </div>
+                    
+                     <div class="form-group">
+                        <label for="total_price">Total:</label>
+                        <label   id="total_price">{{item.total_price}}</label>
+                     </div>
+
+                      <div *ngIf="item.fare.restrictions!=null" class="form-group">
+                        <label for="restrictions">Restrictions:</label>
+                        <div id="restrictions">
+                        <div>
+                        <label for="refundable">Refundable:</label>
+                         <label   id="refundable">{{item.fare.restrictions.refundable}}</label>
+                         </div>
+                         <div>
+                         <label for="change_penalties">Change Penalties:</label>
+                         <label  id="change_penalties"> {{item.fare.restrictions.change_penalties}}</label>
+                         </div>
+                         </div>
+                    </div>
+                     </div>               
+</div>           
+         </div>
+         
+      </td>
+   </tr>
+   </table>
+   <button type="submit" class="btn btn-primary">Pay</button>
+</form>

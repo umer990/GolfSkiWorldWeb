@@ -1,8 +1,9 @@
 <br>
 <br>
+
 <div class="row">
 <div class="col-lg-2">
-<select class="form-control" [(ngModel)]="selectValue" (change)="changeTrip($event.target.value)">
+<select class="form-control"  [(ngModel)]="selectValue" (change)="changeTrip($event.target.value)">
        <option value="RountTrip">RountTrip</option>
         <option value="Oneway">One way</option>
       </select>
@@ -29,20 +30,7 @@
     </span>  
   </div>
 
-
-  <div class="col-lg-2">
-<select class="form-control" [(ngModel)]="currency" (change)="changeCurrency($event.target.value)">
-       <option value="USD">USD</option>
-        <option value="SEK">SEK</option>
-      </select>
-  </div>
-
 </div>
-
-
- 
-
-
 <hr/>
 <div class="row">
   <div class="col-lg-4">
@@ -51,13 +39,13 @@
        From
       </span>
      
-       <input type="text" class="form-control" placeholder="AirportCode" aria-describedby="basic-addon1" [(ngModel)]="origin" (focus)="onFocusDepartureAirport()"  (keyup)="searchDepartureAirportSuggestions()" required />
+       <input type="text"   class="form-control" placeholder="AirportCode" aria-describedby="basic-addon1" [(ngModel)]="departSearch" (focus)="onFocusDepartureAirport()" (keyup)="searchDepartureAirportSuggestions()">
     </div><!-- /input-group -->
 
     
     <div class="results" *ngIf="showDepartureAirportSuggestion && departureSuggestions!=null ">
                         <ul>
-                            <li *ngFor="let airport of departureSuggestions"> <a (click)="clickDepartureAirport(airport)">{{airport}}</a></li>
+                            <li *ngFor="let airport of departureSuggestions"> <a (click)="clickDepartureAirport(airport)">{{airport.label}}</a> <span>{{airport.value}}</span></li>
                         </ul>
                     </div>
   </div><!-- /.col-lg-6 -->
@@ -65,17 +53,17 @@
   <div class="col-lg-4">
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">To</span>
-      <input type="text" class="form-control" placeholder="AirportCode" aria-describedby="basic-addon1" [(ngModel)]="destination"  (keyup)="searchDestinationAirportSuggestions()" (focus)="onFocusDestinationAirport()" required>
+      <input type="text" class="form-control" placeholder="AirportCode" aria-describedby="basic-addon1" [(ngModel)]="arrivalSearch"  (keyup)="searchDestinationAirportSuggestions()" (focus)="onFocusDestinationAirport()">
     </div><!-- /input-group -->
     <div class="results" *ngIf="showDestinationAirportSuggestion && destinationSuggestions!=null">
                         <ul>
-                            <li *ngFor="let airport of destinationSuggestions"> <a (click)="clickDestinationAirport(airport)">airport </a> </li>
+                            <li *ngFor="let airport of destinationSuggestions"> <a (click)="clickDestinationAirport(airport)">{{airport.label}} <span>{{airport.value}}</span></a> </li>
                         </ul>
                     </div>
   </div><!-- /.col-lg-6 -->
 <div class="col-lg-4">
      <div class="btn-group" role="group">
-    <button type="button" (click)="onSearch()" class="btn btn-default" [disabled]="!valid">Search</button>
+    <button type="button"   (click)="onSearch()" class="btn btn-default">Search</button>
   </div>
   </div><!-- /.col-lg-6 -->
 
@@ -86,10 +74,13 @@
   <div class="col-lg-4">
     <div class="input-group">
       <span class="input-group-addon">Departure</span>
-       <input type="text" class="form-control"  aria-describedby="basic-addon1" value="{{departure_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusStartDate()" required >
+
+
+      <!-- DataPipe broken in safari  value="{{departure_date| date:'dd-MMMM-yyyy'}} -->
+       <input type="text" #departDateBox class="form-control"  aria-describedby="basic-addon1" value="{{departure_date}}" (focus)="onFocusStartDate()">
     </div><!-- /input-group -->
-     <div class="results" *ngIf="showDepartureTimePicker">
-                        <datepicker [minDate]="minDate" (selectionDone)="clickStartDate($event)" [(ngModel)]="departure_date"  showWeeks="true"></datepicker>
+     <div class="results" #departDatepicker *ngIf="showDepartureTimePicker">
+                        <datepicker  [minDate]="minDate" (selectionDone)="clickStartDate($event)" [(ngModel)]="departure_date"  showWeeks="true"></datepicker>
                     </div>
   </div><!-- /.col-lg-6 -->
 
@@ -98,38 +89,180 @@
   <div class="col-lg-4">
     <div class="input-group" *ngIf="showReturnDate">
         <span class="input-group-addon" id="basic-addon1">Return</span>
-      <input type="text" class="form-control" value="{{return_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusReturnDate()" aria-describedby="basic-addon1">
+         <!-- DataPipe broken in safari  value="{{departure_date| date:'dd-MMMM-yyyy'}} -->
+      <input type="text"   #returnDateBox class="form-control" value="{{return_date}}" (focus)="onFocusReturnDate()" aria-describedby="basic-addon1">
     </div><!-- /input-group -->
-   <div class="results" *ngIf="showReturnTimePicker">
-                            <datepicker (selectionDone)="clickReturnDate($event)" [minDate]="departure_date" 
-                            [(ngModel)]="return_date" showWeeks="true"></datepicker>
+<div class="results" *ngIf="showReturnTimePicker" #returnDatepicker>
+                            <datepicker  (selectionDone)="clickReturnDate($event)" [minDate]="departure_date" [(ngModel)]="return_date" showWeeks="true"></datepicker>
                         </div>
   </div><!-- /.col-lg-6 -->
 
+<br>
+<br>
+</div><!-- /.row -->
+
+
+<div>
+<ul *ngIf="result!=null" class="list-group">
+    <li *ngFor="let item of result" class="list-group-item">
+        <div style="display:block; background-color:#fbfbfb;padding: 25px 30px 18px 15px;zoom: 1;cursor: pointer;">
+            <!--info-->
+            <div style="display:inline-block;vertical-align: middle;">
+                <div style="display: block">
+                    <!--airlineInfo-->
+                    <div style="float: left; width: 220px; color: #555;">
+                        <!-- airlineName-->
+                        <div style="display: block;font-size: 16px; height: 24px;margin-bottom: 3px;">{{item.out_marketing_airline}}</div>
+                        <!--airlineNumber-->
+                        <div style="display:block; color: #888;">
+                            {{item.out_flight_number}}
+                            <span>{{item.out_aircraft}}</span>
+                        </div>
+                    </div>
+                    <!--time-->
+                    <div style="display: block;   float: left; width: 492px;">
+                        <!--fromtime-->
+                        <div style="display: block;   float: left; width: 163px; text-align: right;">
+                            <h2>{{item.out_departs_time}}</h2>
+                            <p style=" display: block; color: #888;margin-top: -3px;white-space: nowrap;">
+                                {{item.out_origin_airport}}&nbsp;
+                                <span *ngIf="item.out_origin_terminal!=null">T{{item.out_origin_terminal}}</span>
+                            </p>
+                        </div>
+                        <!-- range -->
+                        <div style="display: block;  float: left; width: 120px; margin: 20px 23px 0px 23px; text-align: center; color:#555;">
+                            <div style="display: block;  height: 20px; color: #888;">{{item.duration}}</div>
+                            <div style="display: block;border-bottom: 1px solid #dfdfdf; "></div>
+                            <div *ngIf="item.out_stops > 0" style="display: block; height: 20px; color: #888;">{{item.out_stops}} stops</div>
+                        </div>
+                        <!--totime-->
+                        <div style="display: block;   float: left; width: 163px;">
+                            <h2>{{item.out_arrives_time}}</h2>
+                            <p style=" color: #888;margin-top: -3px;white-space: nowrap; ">
+                                {{item.out_destination_airport}}&nbsp;
+                                <span *ngIf="item.out_destination_terminal!=null">T{{item.out_destination_terminal}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: block" *ngIf="item.include_in_bound">
+                    <!--airlineInfo-->
+                    <div style="float: left; width: 220px; color: #555;">
+                        <!-- airlineName-->
+                        <div style="display: block;font-size: 16px; height: 24px;margin-bottom: 3px;">{{item.in_marketing_airline}}</div>
+                        <!--airlineNumber-->
+                        <div style="display:block; color: #888;">
+                            {{item.in_flight_number}}
+                            <span>{{item.in_aircraft}}</span>
+                        </div>
+                    </div>
+                    <!--time-->
+                    <div style="display: block;   float: left; width: 492px;">
+                        <!--fromtime-->
+                        <div style="display: block;   float: left; width: 163px; text-align: right;">
+                            <h2>{{item.in_departs_time}}</h2>
+                            <p style=" display: block; color: #888;margin-top: -3px;white-space: nowrap;">
+                                {{item.in_origin_airport}}&nbsp;
+                                <span *ngIf="item.in_origin_terminal!=null">T{{item.in_origin_terminal}}</span>
+                            </p>
+                        </div>
+                        <!-- range -->
+                        <div style="display: block;  float: left; width: 120px; margin: 20px 23px 0px 23px; text-align: center; color:#555;">
+                            <div style="display: block;  height: 20px; color: #888;">{{item.duration}}</div>
+                            <div style="display: block;border-bottom: 1px solid #dfdfdf; "></div>
+                            <div *ngIf="item.in_stops > 0" style="display: block; height: 20px; color: #888;">{{item.in_stops}} stops</div>
+                        </div>
+                        <!--totime-->
+                        <div style="display: block;   float: left; width: 163px;">
+                            <h2>{{item.in_arrives_time}}</h2>
+                            <p style=" color: #888;margin-top: -3px;white-space: nowrap; ">
+                                {{item.in_destination_airport}}&nbsp;
+                                <span *ngIf="item.in_destination_terminal!=null">T{{item.in_destination_terminal}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!--price-->
+            <div style="display:inline-block;vertical-align: middle;width: 150px;text-align: right;color: #ff8205">
+                <p style="text-align: right;color: #ff8205">{{item.total_price}}</p>
+                <button type="button"   (click)=" onClickInfo(item)" class="btn btn-info">Info</button>
+            </div>
+
+             <!--price-->
+            <div style="display:inline-block;vertical-align: middle;width: 150px;text-align: right;color: #ff8205">
+              
+
+                <button button="button"   (click)="onSelectItineraryWithPrice(item)" class="btn btn-info">Select</button>
+            </div>
+        </div>
+        <!--details-->
+        <div  *ngIf="item.showDetails" style="display: block;min-height: 65px; position: relative;">
+            <div>
+                <h5 style="color: #00a9e0;font-size: 18px;text-transform: uppercase;margin-bottom: 0;">OutBound</h5>
+                <p>{{item.out_departs_at}}</p>
+                <ul *ngIf="item.outFlights!=null" class="list-group">
+                    <li *ngFor="let flight of item.outFlights" class="list-group-item">
+                        <div>
+                            <div>
+                                <!--logo-->
+                                <div style="position: absolute;display: block; width: 30px;height: 30px;margin-top: 30px;">{{flight.marketing_airline}}</div>
+                                <!--departure-->
+                                <div style=" display: inline-block; position: relative;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 21px;text-align: right;padding-left: 40px; clear: left; font-weight: bold;float: left; margin-top: 8px;">{{flight.departs_at}}</div>
+                                <!--Airport-->
+                                <div style=" display: block;   float: left;font-family: 'verdana',Verdana,sans-serif;font-size: 12px;font-weight: bold;color: #555555; padding: 0 0 15px 15px;">{{flight.origin.airport}}</div>
+                                <!--line-->
+                                <div style="border-top: 1px solid #e6e6e6;position: absolute;padding-left: 410px;margin: 43px 0 0 40px;"></div>
+                                <!--arrival-->
+                                <div style="display: inline-block;position: relative;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 21px;text-align: right;padding-left: 40px;clear: left;font-weight: bold;float: left;margin-top: 8px;">{{flight.arrives_at}}</div>
+                                <!--Airport-->
+                                <div style=" display: block;   float: left;font-family: 'verdana',Verdana,sans-serif;font-size: 12px;font-weight: bold;color: #555555;padding: 0 0 15px 15px;">{{flight.destination.airport}} T{{flight.destination.terminal}}</div>
+                            </div>
+                            <!--AdditionInfo-->
+                            <div style="clear: both;font-size: 12px;opacity: 0.7;font-family: Verdana,sans-serif;">Flight #: {{flight.marketing_airline}} {{flight.flight_number}} | aircraft type: {{flight.aircraft}} | operated by: {{flight.operating_airline}}</div>
+                        </div>
+                        <div style="clear: both; font-size: 11px; opacity: 0.7;filter: alpha(opacity=70); font-family: Verdana,sans-serif;">{{flight.booking_info.travel_class}} class | {{flight.booking_info.seats_remaining}} seats remaining</div>
+                    </li>
+                </ul>
+
+
+            </div>
+            <div *ngIf="item.inFlights!=null">
+                <h5 style="color: #00a9e0;font-size: 18px;text-transform: uppercase;margin-bottom: 0;">InBound</h5>
+                <p>{{item.in_departs_at}}</p>
+                <ul class="list-group">
+                    <li *ngFor="let flight of item.outFlights" class="list-group-item">
+                        <div>
+                            <div>
+                                <!--logo-->
+                                <div style="position: absolute;display: block; width: 30px;height: 30px;margin-top: 30px;">{{flight.marketing_airline}}</div>
+                                <!--departure-->
+                                <div style=" display: inline-block; position: relative;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 21px;text-align: right;padding-left: 40px; clear: left; font-weight: bold;float: left; margin-top: 8px;">{{flight.departs_at}}</div>
+                                <!--Airport-->
+                                <div style=" display: block;   float: left;font-family: 'verdana',Verdana,sans-serif;font-size: 12px;font-weight: bold;color: #555555; padding: 0 0 15px 15px;">{{flight.origin.airport}}</div>
+                                <!--line-->
+                                <div style="border-top: 1px solid #e6e6e6;position: absolute;padding-left: 410px;margin: 43px 0 0 40px;"></div>
+                                <!--arrival-->
+                                <div style="display: inline-block;position: relative;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 21px;text-align: right;padding-left: 40px;clear: left;font-weight: bold;float: left;margin-top: 8px;">{{flight.arrives_at}}</div>
+                                <!--Airport-->
+                                <div style=" display: block;   float: left;font-family: 'verdana',Verdana,sans-serif;font-size: 12px;font-weight: bold;color: #555555;padding: 0 0 15px 15px;">{{flight.destination.airport}} T{{flight.destination.terminal}}</div>
+                            </div>
+                            <!--AdditionInfo-->
+                            <div style="clear: both;font-size: 12px;opacity: 0.7;font-family: Verdana,sans-serif;">Flight #: {{flight.marketing_airline}} {{flight.flight_number}} | aircraft type: {{flight.aircraft}} | operated by: {{flight.operating_airline}}</div>
+                        </div>
+                        <div style="clear: both; font-size: 11px; opacity: 0.7;filter: alpha(opacity=70); font-family: Verdana,sans-serif;">{{flight.booking_info.travel_class}} class | {{flight.booking_info.seats_remaining}} seats remaining</div>
+                    </li>
+                </ul>
+
+                
+            </div>
+        </div>
+    </li>
+</ul>
 </div>
- 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Airline</th>
-      <th>Depart On</th>
-      <th>Arrive ON</th>
-      <th>Depart From</th>
-      <th>Arrive At</th>
-      <th>Image</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let flight of flights">
-      <th scope="row">{{flight.InboundLegId.Carriers[0].Name}}</th>
-      <td>{{flight.InboundLegId.Departure}}</td>
-      <td>{{flight.InboundLegId.Arrival}}</td>
-      <td>{{flight.InboundLegId.DestinationStation.Name}}</td>
-      <td>{{flight.InboundLegId.OriginStation.Name}}</td>
-      <td><img src="{{flight.InboundLegId.Carriers[0].ImageUrl}}" /></td>
-    </tr>
-    
-  </tbody>
-</table>
-<br>
-<br>
+

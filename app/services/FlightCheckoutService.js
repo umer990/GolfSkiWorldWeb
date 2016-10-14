@@ -9,25 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-require('rxjs/Rx');
-var DealsComponent = (function () {
-    function DealsComponent(route, router) {
-        this.route = route;
-        this.router = router;
+var FlightCheckoutService = (function () {
+    function FlightCheckoutService() {
     }
-    DealsComponent.prototype.ngOnInit = function () {
+    FlightCheckoutService.prototype.setItineraryInfo = function (item, adults, children, infants) {
+        this.selectItem = item;
+        this.adults = adults;
+        this.children = children;
+        this.infants = infants;
     };
-    DealsComponent = __decorate([
-        core_1.Component({
-            selector: 'deals',
-            templateUrl: 'app/resort/resort-deals.component.html',
-            // providers: [DealService],
-            styleUrls: ['app/resort/resort-deals.component.css']
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
-    ], DealsComponent);
-    return DealsComponent;
+    FlightCheckoutService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], FlightCheckoutService);
+    return FlightCheckoutService;
 }());
-exports.DealsComponent = DealsComponent;
-//# sourceMappingURL=resort-deals.component.js.map
+exports.FlightCheckoutService = FlightCheckoutService;
+//# sourceMappingURL=FlightCheckoutService.js.map
