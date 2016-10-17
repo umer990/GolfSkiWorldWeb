@@ -1,3 +1,5 @@
+<div style=" margin-top: 100px;">
+
 <ul class="nav nav-tabs nav-justified">
    <li role="presentation" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a   [routerLink]="['/resort/hotels']" [queryParams]="{'lat':lat,'lng':lng}">Hotels</a></li>
    <li role="presentation" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a  [routerLink]="['/resort/restaurants']" [queryParams]="{'lat':lat,'lng':lng}">Restaurants</a></li>
@@ -8,3 +10,4 @@
    <router-outlet></router-outlet>
 </div>
 <button id="backButton" (click)="goBack()">Back</button>
+</div>

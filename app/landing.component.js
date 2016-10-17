@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var googleMap_component_1 = require('./googleMap.component');
 var movies_component_1 = require('./movies.component');
-var header_component_1 = require('./common/header.component');
 var LandingComponent = (function () {
     function LandingComponent() {
         this.PageName = "This is Landing property";
@@ -20,7 +19,7 @@ var LandingComponent = (function () {
         core_1.Component({
             selector: 'landingPage',
             templateUrl: 'app/landing.component.html',
-            directives: [googleMap_component_1.googleMapComponent, movies_component_1.moviesComponent, header_component_1.HeaderComponent]
+            directives: [googleMap_component_1.googleMapComponent, movies_component_1.moviesComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], LandingComponent);

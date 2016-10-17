@@ -1,5 +1,5 @@
 
- <header></header>
+
 <div id="inSlider" class="carousel slide carousel-fade" data-ride="carousel" ng-non-bindable>
     <ol class="carousel-indicators">
         <li data-target="#inSlider" data-slide-to="0" class="active"></li>
@@ -103,20 +103,26 @@ So lets go out for a golf or ski adventure and make some awsome HD videos and sh
                         (onPreviewData)="handlePreviewData($event)">
                         </span>
                     <p *ngIf="previewData && !response">
-                    Title of the Movie:<input class="form-control" type="text" id="Title" required>
-                    Description:<input type="text" class="form-control"  id="Description" required>
                     
-                    <span>
-                    <span class="btn btn-default btn-file ">
+                    <label class="control-label col-sm-2" for="Title">Title of the Movie::</label>
+                    <input class="form-control" [(ngModel)]="name" type="text" name="Title" required>
+                    <label class="control-label col-sm-2" for="Description">Description:</label>
+                    <textarea class="form-control" rows="3" id="desciption" [(ngModel)]="description"  name="Description" required></textarea>
+                    
+                    <video [src]="previewData" alt="Preview Data" class="preview-img" style="margin:10px"></video>
+                    </p>
+                     <span>
+                    <span class="btn btn-default btn-file " *ngIf="previewData">
                     <button class="button" (click)="startUpload()">Start Upload</button>
                     </span>
                     </span>
-                    <img [src]="previewData" alt="Preview Data" class="preview-img">
-                    </p>
                     </form>
-                    <p *ngIf="responses">
-                    {{ data| json }}
+                    
+                    <div *ngIf="!zone.isStable" class="loader"></div>
+                    <p *ngIf="progress">
+                    {{ errorMessage }}
                     </p>
+                    
                     
                     
             </div>

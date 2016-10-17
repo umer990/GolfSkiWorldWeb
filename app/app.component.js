@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var landing_component_1 = require('./landing.component');
 var FlightCheckoutService_1 = require('./services/FlightCheckoutService');
+var header_component_1 = require('./common/header.component');
 var AppComponent = (function () {
     function AppComponent(route, router, flightCheckoutService) {
         this.route = route;
@@ -22,8 +23,8 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             providers: [FlightCheckoutService_1.FlightCheckoutService],
-            template: "\n    \t\t   \n   \t\t\t\t<router-outlet></router-outlet>\n                  \n    \t\t\t<a routerLink=\"/admin\">admin</a>\n    \t\t\t  \n    \t\t\t\n    \t\t\t",
-            directives: [landing_component_1.LandingComponent]
+            template: "\n    \t\t   <header></header>\n   \t\t\t\t<router-outlet></router-outlet>\n                  \n    \t\t\t<a routerLink=\"/admin\">admin</a>\n    \t\t\t  \n    \t\t\t\n    \t\t\t",
+            directives: [landing_component_1.LandingComponent, header_component_1.HeaderComponent]
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, FlightCheckoutService_1.FlightCheckoutService])
     ], AppComponent);

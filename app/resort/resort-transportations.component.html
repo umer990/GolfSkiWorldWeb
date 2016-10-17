@@ -76,8 +76,8 @@
       <span class="input-group-addon">Departure</span>
 
 
-      <!-- DataPipe broken in safari  value="{{departure_date| date:'dd-MMMM-yyyy'}} -->
-       <input type="text" #departDateBox class="form-control"  aria-describedby="basic-addon1" value="{{departure_date}}" (focus)="onFocusStartDate()">
+      <!-- DataPipe broken in safari  value="{{departure_date| date:'dd-MMMM-yyyy'}}" -->
+       <input type="text" #departDateBox class="form-control"  aria-describedby="basic-addon1" value="{{departure_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusStartDate()">
     </div><!-- /input-group -->
      <div class="results" #departDatepicker *ngIf="showDepartureTimePicker">
                         <datepicker  [minDate]="minDate" (selectionDone)="clickStartDate($event)" [(ngModel)]="departure_date"  showWeeks="true"></datepicker>
@@ -89,8 +89,8 @@
   <div class="col-lg-4">
     <div class="input-group" *ngIf="showReturnDate">
         <span class="input-group-addon" id="basic-addon1">Return</span>
-         <!-- DataPipe broken in safari  value="{{departure_date| date:'dd-MMMM-yyyy'}} -->
-      <input type="text"   #returnDateBox class="form-control" value="{{return_date}}" (focus)="onFocusReturnDate()" aria-describedby="basic-addon1">
+         <!-- DataPipe broken in safari  value="{{departure_date| date:'dd-MMMM-yyyy'}}" -->
+      <input type="text"   #returnDateBox class="form-control" value="{{return_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusReturnDate()" aria-describedby="basic-addon1">
     </div><!-- /input-group -->
 <div class="results" *ngIf="showReturnTimePicker" #returnDatepicker>
                             <datepicker  (selectionDone)="clickReturnDate($event)" [minDate]="departure_date" [(ngModel)]="return_date" showWeeks="true"></datepicker>
