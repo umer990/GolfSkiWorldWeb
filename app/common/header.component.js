@@ -9,15 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+//import {SimplePageScroll} from 'ng2-simple-page-scroll';
 var HeaderComponent = (function () {
     function HeaderComponent() {
-        this.PageName = "";
+        //  SimplePageScrollConfig.defaultScrollOffset = 50;
     }
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'header',
             templateUrl: 'app/common/header.component.html',
-            directives: []
         }), 
         __metadata('design:paramtypes', [])
     ], HeaderComponent);

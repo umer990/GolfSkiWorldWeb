@@ -11,7 +11,7 @@ export class LocationService {
 
   constructor(private http: Http) {}
 
-  getCurrentLocation(): Observable < any > { console.log("may be in current")
+  getCurrentLocation(): Observable < any > {
     return this.http.get('http://ipinfo.io/json')
       .map(this.extractData)
       .catch(this.handleError);
@@ -32,12 +32,12 @@ export class LocationService {
     return Observable.throw(errMsg);
   }
 
-  getGolfResorts(): Observable < any > {console.log("may be in getGolfResorts")
+  getGolfResorts(): Observable < any > {
     return this.http.get(myGlobals.GOLFCOURSE_URL)
       .map(this.MapToCoordinates)
       .catch(this.handleError);
   }
-    getSkiResorts(): Observable < any > {console.log("may be in getSkiResorts")
+    getSkiResorts(): Observable < any > {
     return this.http.get(myGlobals.SKICOURSE_URL)
       .map(this.MapToCoordinates)
       .catch(this.handleError);

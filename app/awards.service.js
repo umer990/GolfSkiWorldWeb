@@ -10,26 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var myGlobals = require('./constants');
 var UploadService = (function () {
     function UploadService(http) {
         this.http = http;
     }
-    /*
-    This does nothing more than fetching the policy and signature from a node backend
-    Check this for more info:
-    http://stackoverflow.com/questions/18476217/amazon-s3-post-api-and-signing-a-policy-with-nodejs
-     */
-    UploadService.prototype.getPolicy = function (directory) {
-        console.log('fetching Policy and Signature');
-        var params = JSON.stringify({ directory: directory });
-        var headers = new http_1.Headers();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post(myGlobals.GOLFCOURSE_URL, params, {
-            headers: headers
-        })
-            .map(function (response) { return response.json(); });
-    };
     UploadService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

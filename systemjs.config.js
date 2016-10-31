@@ -6,7 +6,8 @@
   System.config({
     paths: { 
       // paths serve as alias
-      'npm:': 'node_modules/'
+      'npm:': 'node_modules/',
+      //'ng2-simple-page-scroll': 'node_modules/ng2-simple-page-scroll'
     },
     // map tells the System loader where to look for things
     map: {
@@ -23,13 +24,16 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       'angular2-google-maps': 'node_modules/angular2-google-maps',
       'ng2-uploader': 'node_modules/ng2-uploader/ng2-uploader',
+      'ng2-simple-page-scroll': 'npm:ng2-simple-page-scroll',
       'angular2-google-maps/core': 'node_modules/angular2-google-maps/core/core.umd.js',
       'directives' : 'directives/',
       // other libraries
       'rxjs':                       'npm:rxjs',
       'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
-      'ng2-bootstrap': 'node_modules/ng2-bootstrap','moment': 'node_modules/moment/moment.js'
-
+      'ng2-bootstrap': 'node_modules/ng2-bootstrap',
+      'moment': 'node_modules/moment/moment.js',
+     
+      
 
     },
     // packages tells the System loader how to load when no filename and/or no extension
@@ -49,10 +53,19 @@
      },  
      'node_modules/angular2-google-maps': {
         defaultExtension: 'js'
-    }, 'node_modules/ng2-uploader': {
+    },
+    'node_modules/ng2-simple-page-scroll': {
+      main: 'ng2-simple-page-scroll.js', 
+      defaultExtension: 'js'
+    },
+     'node_modules/ng2-uploader': {
         defaultExtension: 'js'
-    }, 
+    },
       'directives':{ defaultExtension: 'js' } 
     }
+    /*
+     packageNames.forEach(function (pkgName) {
+        packages[pkgName] = {main: 'index.js', defaultExtension: 'js'};
+    });*/
   });
 })(this);

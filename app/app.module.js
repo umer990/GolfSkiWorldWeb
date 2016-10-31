@@ -15,6 +15,7 @@ var forms_1 = require('@angular/forms');
 var core_2 = require('angular2-google-maps/core');
 var http_1 = require('@angular/http');
 var ng2_uploader_1 = require('ng2-uploader');
+//import {SimplePageScroll} from 'ng2-simple-page-scroll' ;
 var app_routing_1 = require('./app.routing');
 var common_2 = require('@angular/common');
 var landing_component_1 = require('./landing.component');
@@ -23,6 +24,7 @@ var app_component_1 = require('./app.component');
 var googleMap_component_1 = require('./googleMap.component');
 var movies_component_1 = require('./movies.component');
 var awards_component_1 = require('./awards.component');
+var deals_component_1 = require('./deals.component');
 var ImageModel_component_1 = require('./ImageModel.component');
 var resort_module_1 = require('./resort/resort.module');
 var header_component_1 = require('./common/header.component');
@@ -54,8 +56,9 @@ var AppModule = (function () {
                 ImageModel_component_1.ImageModalComponent,
                 admin_component_1.AdminComponent,
                 awards_component_1.AwardsComponent,
+                deals_component_1.dealsComponent,
                 CheckOut_1.FlightCheckOut,
-                ng2_uploader_1.UPLOAD_DIRECTIVES
+                ng2_uploader_1.UPLOAD_DIRECTIVES,
             ],
             providers: [app_routing_1.appRoutingProviders, { provide: common_2.LocationStrategy, useClass: common_2.HashLocationStrategy }
             ],

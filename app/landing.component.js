@@ -11,15 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var googleMap_component_1 = require('./googleMap.component');
 var movies_component_1 = require('./movies.component');
+var deals_component_1 = require('./deals.component');
 var LandingComponent = (function () {
     function LandingComponent() {
-        this.PageName = "This is Landing property";
     }
     LandingComponent = __decorate([
         core_1.Component({
             selector: 'landingPage',
             templateUrl: 'app/landing.component.html',
-            directives: [googleMap_component_1.googleMapComponent, movies_component_1.moviesComponent]
+            directives: [googleMap_component_1.googleMapComponent, movies_component_1.moviesComponent, deals_component_1.dealsComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], LandingComponent);

@@ -19,7 +19,7 @@ var moviesComponent = (function () {
         this.openModalWindow = false;
         this.images = [];
         this.addImages = function (data) {
-            console.log("Raw Movies:" + JSON.stringify(data));
+            //	console.log("Raw Movies:" + JSON.stringify(data))
             for (var i = 0; i < data.length; i++) {
                 var destination = data[i];
                 this.images.push({
@@ -28,17 +28,17 @@ var moviesComponent = (function () {
                     'img': !destination.thumbnail ? destination.movie : destination.thumbnail,
                 });
             }
-            console.log("slides loaded:" + JSON.stringify(this.images));
+            //	console.log("slides loaded:" + JSON.stringify(this.images))
             this.slidesLoaded = true;
         };
         moviesService.getMovies()
             .subscribe(function (data) { return _this.addImages(data); }),
             function (error) { return alert(error); },
-            function () { return console.log("movieService finished"); };
+            function () { return console.log("Movies Loaded"); };
     }
     //dataUri:any;
     moviesComponent.prototype.createThumbnail = function (vdoURL) {
-        console.log("video Url:" + vdoURL);
+        //console.log("video Url:"+ vdoURL)
         var video = document.createElement("video");
         var canvas = document.createElement('canvas');
         var context = canvas.getContext('2d');
@@ -53,8 +53,7 @@ var moviesComponent = (function () {
         //console.log(dataURI)
         return dataURI;
     };
-    moviesComponent.prototype.ngOnInit = function () {
-    };
+    moviesComponent.prototype.ngOnInit = function () { };
     moviesComponent.prototype.OpenImageModel = function (imageSrc, images) {
         //alert('OpenImages');
         var imageModalPointer;

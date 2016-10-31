@@ -59,6 +59,7 @@ export class TransportationsComponent implements OnInit, OnDestroy {
     searchService:Subscription;
     showSuggestionsService:Subscription;
     showDestSuggestionsService:Subscription;
+
     constructor(private route: ActivatedRoute, private router: Router, _eref: ElementRef, 
       private service: TransportationService,
      
@@ -77,12 +78,12 @@ export class TransportationsComponent implements OnInit, OnDestroy {
 
  if (window.navigator && window.navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(pos=>{this.userLat=pos.coords.latitude,this.userLng=pos.coords.longitude;this.findUserAirport();console.log("ipInfo"+this.userLat+this.userLng);});
-         }else{
-                   this.userLat =  0.0;
-                   this.userLng = 0.0; 
-                   this.findUserAirport();                  
-
-         };
+         }
+else{
+     this.userLat =  0.0;
+     this.userLng = 0.0; 
+     this.findUserAirport();                  
+};
 
 
 

@@ -1,6 +1,7 @@
 import { Component,Injectable,Input, Output, EventEmitter,NgZone } from '@angular/core';
 import {UploadService} from './awards.service';
 import myGlobals = require('./constants');
+import {destination} from './destination'
 
 import {HTTP_PROVIDERS, Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable ,map}     from 'rxjs/Observable';
@@ -28,6 +29,7 @@ export class AwardsComponent implements OnInit{
   longitude:any;
   latitude:any;
   errorMessage: string = null;
+  destinationToAdd:destination;
  
 constructor(private _uploadService: UploadService,private geoService: LocationService,private http: Http) {}
   

@@ -5,22 +5,28 @@
   <div class="col-lg-3">
     <div class="input-group">
       <span class="input-group-addon">check in:</span>
-       <input type="text" class="form-control"  aria-describedby="basic-addon1" value="{{departure_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusStartDate()" >
+
+
+      <!-- DataPipe broken in safari  value="{{departure_date| date:'dd-MMMM-yyyy'}}" -->
+       <input type="text" #departDateBox class="form-control"  aria-describedby="basic-addon1" value="{{departure_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusStartDate()">
     </div><!-- /input-group -->
-     <div class="results" *ngIf="showDepartureTimePicker">
-                        <datepicker [minDate]="minDate" (selectionDone)="clickStartDate($event)" [(ngModel)]="departure_date"  showWeeks="true"></datepicker>
+ <div class="results" #departDatepicker *ngIf="showDepartureTimePicker">
+                        <datepicker  [minDate]="minDate" (selectionDone)="clickStartDate($event)" [(ngModel)]="departure_date"  showWeeks="true"></datepicker>
                     </div>
   </div><!-- /.col-lg-6 -->
 
-  <div class="col-lg-3">
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">check out:</span>
-      <input type="text" class="form-control" value="{{return_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusReturnDate()" aria-describedby="basic-addon1">
+<div class="col-lg-3">
+    <div class="input-group" *ngIf="showReturnDate">
+        <span class="input-group-addon" id="basic-addon1">Check out:</span>
+         <!-- DataPipe broken in safari  value="{{departure_date| date:'dd-MMMM-yyyy'}}" -->
+      <input type="text"   #returnDateBox class="form-control" value="{{return_date| date:'dd-MMMM-yyyy'}}" (focus)="onFocusReturnDate()" aria-describedby="basic-addon1">
     </div><!-- /input-group -->
-<div class="results" *ngIf="showReturnTimePicker">
-                            <datepicker (selectionDone)="clickReturnDate($event)" [minDate]="departure_date" [(ngModel)]="return_date" showWeeks="true"></datepicker>
+<div class="results" *ngIf="showReturnTimePicker" #returnDatepicker>
+                            <datepicker  (selectionDone)="clickReturnDate($event)" [minDate]="departure_date" [(ngModel)]="return_date" showWeeks="true"></datepicker>
                         </div>
-  </div><!-- /.col-lg-6 -->
+  </div>
+
+  
  
  <div class="col-lg-2">
  
@@ -41,7 +47,7 @@
  </div>
        <!--  Episodes loop</div>-->
        
-<table class="table">
+<!--<table class="table">
   <thead>
     <tr>
       <th>Hotel Name</th> 
@@ -52,15 +58,146 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let hotel of Hotels">
-      <th scope="row">{{hotel.name}}</th>
-      <td>{{hotel.popularity_desc}}</td>
-      <td>{{hotel.star_rating}}</td>
-      <td><img style="width:120px;height:120px" src={{imageUrl(hotel.image_urls[0])}} /></td>
+    <tr *ngFor="let hotel of hotelsList">
+      <th scope="row">{{hotel.property_name}} <span *ngIf="hotel.awards[0]">Rating:{{hotel.awards[0].rating}} by {{hotel.awards[0].provider}}</span></th>
+      <td>{{hotel.total_price.amount}}</td>
+      <td>{{hotel.address.line1}},{{hotel.address.postal_code}},{{hotel.address.city}} {{hotel.address.country}}</td>
+      <td><img style="width:120px;height:120px" src= /></td>
 
       
     </tr>
     
   </tbody>
-</table>
+</table>-->
     
+<div>
+<ul *ngIf="hotelsList!=null" class="list-group">
+    <li *ngFor="let hotel of hotelsList" class="list-group-item">
+        <div style="display:block; background-color:#fbfbfb;padding: 25px 30px 18px 15px;zoom: 1;cursor: pointer;">
+            <!--info-->
+            <div style="display:inline-block;vertical-align: middle;">
+                <div style="display: block">
+                    <!--airlineInfo-->
+                    <div style="float: left; width: 220px; color: #555;">
+                        <!-- airlineName-->
+                        <div style="display: block;font-size: 16px; height: 24px;margin-bottom: 3px;"></div>
+                        <!--airlineNumber-->
+                        <div style="display:block; color: #888;">
+                            {{hotel.property_name}}
+                            <span>{{hotel.address.line1}},{{hotel.address.postal_code}},{{hotel.address.city}} {{hotel.address.country}}</span>
+                        </div>
+                    </div>
+                    <!--time-->
+                    <div style="display: block;   float: left; width: 492px;">
+                        <!--fromtime-->
+                        <div *ngIf="hotel.awards[0]" style="display: block;   float: left; width: 163px; text-align: right;">
+                            <h2>Rating:{{hotel.awards[0].rating}}  </h2>
+                            <p style=" display: block; color: #888;margin-top: -3px;white-space: nowrap;">
+                             by {{hotel.awards[0].provider}}&nbsp;
+                                <span></span>
+                            </p>
+                        </div>
+                        <!-- range -->
+                        <div  style="display: block;  float: left; width: 120px; margin: 20px 23px 0px 23px; text-align: center; color:#555;">
+                            <div style="display: block;  height: 20px; color: #888;"></div>
+                            <div style="display: block;border-bottom: 1px solid #dfdfdf; "></div>
+                            <div  style="display: block; height: 20px; color: #888;"> stops</div>
+                        </div>
+                        <!--totime-->
+                        <div  *ngIf="hotel.awards[1]" style="display: block;   float: left; width: 163px;">
+                            <h2>Rating:{{hotel.awards[1].rating}}</h2>
+                            <p style=" color: #888;margin-top: -3px;white-space: nowrap; ">
+                                {{hotel.awards[1].provider}}&nbsp;
+                                <span ></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: block" >
+                    <!--airlineInfo-->
+                    <div style="float: left; width: 220px; color: #555;" *ngIf="hotel.awards[0]">
+                        <!-- airlineName-->
+                        <div style="display: block;font-size: 16px; height: 24px;margin-bottom: 3px;">{{hotel.awards[0].rating}}</div>
+                        <!--airlineNumber-->
+                        <div style="display:block; color: #888;">
+                            
+                            <span></span>
+                        </div>
+                    </div>
+                    <!--time-->
+                    <div *ngIf="hotel.awards[1]"  style="display: block;  float: left; width: 492px;">
+                        <!--fromtime-->
+                        <div style="display: block;   float: left; width: 163px; text-align: right;">
+                            <h2>{{hotel.awards[1].provider}}</h2>
+                            <p style=" display: block; color: #888;margin-top: -3px;white-space: nowrap;">
+                                {{hotel.awards[1].rating}}&nbsp;
+                                <span >T</span>
+                            </p>
+                        </div>
+                        <!-- range -->
+                        <div style="display: block;  float: left; width: 120px; margin: 20px 23px 0px 23px; text-align: center; color:#555;">
+                            <div style="display: block;  height: 20px; color: #888;"></div>
+                            <div style="display: block;border-bottom: 1px solid #dfdfdf; "></div>
+                            <div  style="display: block; height: 20px; color: #888;"> stops</div>
+                        </div>
+                        <!--totime
+                        <div style="display: block;   float: left; width: 163px;">
+                            <h2>{{item.in_arrives_time}}</h2>
+                            <p style=" color: #888;margin-top: -3px;white-space: nowrap; ">
+                                {{item.in_destination_airport}}&nbsp;
+                                <span *ngIf="item.in_destination_terminal!=null">T{{item.in_destination_terminal}}</span>
+                            </p>
+                        </div>-->
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!--price-->
+            <div style="display:inline-block;vertical-align: middle;width: 150px;text-align: right;color: #ff8205">
+                <p style="text-align: right;color: #ff8205">{{hotel.total_price.amount}}</p>
+                <button type="button"   (click)=" onClickInfo(hotel)" class="btn btn-info">Info</button>
+            </div>
+
+             <!--price-->
+            <div style="display:inline-block;vertical-align: middle;width: 150px;text-align: right;color: #ff8205">
+              
+
+                <button button="button"    class="btn btn-info">Select</button>
+            </div>
+        </div>
+        <!--details-->
+        <div   style="display: block;min-height: 65px; position: relative;">
+            <div>
+                <h5 style="color: #00a9e0;font-size: 18px;text-transform: uppercase;margin-bottom: 0;">OutBound</h5>
+                <p></p>
+                <ul class="list-group">
+                    <li  class="list-group-item">
+                        <div>
+                           
+                            <!--AdditionInfo-->
+                            <div *ngFor="let aminity of hotel.amenities" style="clear: both;font-size: 12px;opacity: 0.7;font-family: Verdana,sans-serif;">{{aminity.description}} |  </div>
+                        <div>
+                                <!--logo-->
+                                <div style="position: absolute;display: block; width: 30px;height: 30px;margin-top: 30px;"></div>
+                                <!--departure-->
+                                <div style=" display: inline-block; position: relative;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 21px;text-align: right;padding-left: 40px; clear: left; font-weight: bold;float: left; margin-top: 8px;"></div>
+                                <!--Airport-->
+                             <!--Airport-->
+                               
+                            </div>
+                        </div>
+                        <div style="clear: both; font-size: 11px; opacity: 0.7;filter: alpha(opacity=70); font-family: Verdana,sans-serif;"> </div>
+                    </li>
+                </ul>
+
+
+            </div>
+          
+        </div>
+    </li>
+</ul>
+</div>

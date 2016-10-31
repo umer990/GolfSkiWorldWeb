@@ -53,7 +53,7 @@ images=[];
 //dataUri:any;
 createThumbnail(vdoURL){
 	
-	console.log("video Url:"+ vdoURL)
+	//console.log("video Url:"+ vdoURL)
 	var video=document.createElement("video")
 	var canvas = document.createElement('canvas');
 	var context = canvas.getContext('2d');
@@ -78,14 +78,13 @@ constructor(moviesService: movieService,private _elRef:ElementRef){
 			.subscribe(
 					data=>this.addImages(data)),
 					error=>alert(error),
-				()=>console.log("movieService finished")
+				()=>console.log("Movies Loaded")
 }
 
-ngOnInit():any{
-			}
+ngOnInit():any{}
 
 addImages=function(data){
-					console.log("Raw Movies:" + JSON.stringify(data))
+				//	console.log("Raw Movies:" + JSON.stringify(data))
 				for (var i = 0; i < data.length; i++)
 				                        {
 				                        var destination = data[i];
@@ -95,7 +94,8 @@ addImages=function(data){
 				                                    'img':!destination.thumbnail ? destination.movie : destination.thumbnail,                                  
 				                                })
 				                                }
-																				console.log("slides loaded:" + JSON.stringify(this.images))
+																			//	console.log("slides loaded:" + JSON.stringify(this.images))
+																				
 																				this.slidesLoaded=true;
 				}
 

@@ -1,6 +1,6 @@
 import { Injectable,ElementRef,OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable ,map}     from 'rxjs/Observable';
+import { Observable , map}     from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 import 'rxjs/Rx'
 import myGlobals = require('./constants');

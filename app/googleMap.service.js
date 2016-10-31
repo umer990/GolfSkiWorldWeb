@@ -20,7 +20,6 @@ var LocationService = (function () {
         this.http = http;
     }
     LocationService.prototype.getCurrentLocation = function () {
-        console.log("may be in current");
         return this.http.get('http://ipinfo.io/json')
             .map(this.extractData)
             .catch(this.handleError);
@@ -39,13 +38,11 @@ var LocationService = (function () {
         return Observable_1.Observable.throw(errMsg);
     };
     LocationService.prototype.getGolfResorts = function () {
-        console.log("may be in getGolfResorts");
         return this.http.get(myGlobals.GOLFCOURSE_URL)
             .map(this.MapToCoordinates)
             .catch(this.handleError);
     };
     LocationService.prototype.getSkiResorts = function () {
-        console.log("may be in getSkiResorts");
         return this.http.get(myGlobals.SKICOURSE_URL)
             .map(this.MapToCoordinates)
             .catch(this.handleError);
