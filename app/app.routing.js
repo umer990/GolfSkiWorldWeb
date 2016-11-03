@@ -4,6 +4,7 @@ var landing_component_1 = require('./landing.component');
 var admin_component_1 = require('./admin.component');
 var awards_component_1 = require('./awards.component');
 var movies_component_1 = require('./movies.component');
+var googleMap_component_1 = require('./googleMap.component');
 var CheckOut_1 = require('./CheckOut');
 var appRoutes = [
     { path: '', component: landing_component_1.LandingComponent },
@@ -11,6 +12,7 @@ var appRoutes = [
     { path: 'awards', component: awards_component_1.AwardsComponent },
     { path: 'movie', component: movies_component_1.moviesComponent },
     { path: 'admin', component: admin_component_1.AdminComponent },
+    { path: 'maps', component: googleMap_component_1.googleMapComponent },
     { path: 'checkout', component: CheckOut_1.FlightCheckOut },
     { path: '**', redirectTo: '/home' },
 ];

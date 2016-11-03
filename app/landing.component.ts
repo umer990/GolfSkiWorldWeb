@@ -11,5 +11,18 @@ import {dealsComponent} from './deals.component'
 })
 
 export class LandingComponent{
+private mapStatus:boolean=false;
+private mapLink:string="Open Map";
+private showMap(){
+    if(!this.mapStatus)
+    {
+        this.mapStatus=true;
+        this.mapLink="Close Map"
+    }
+	else{
+		this.mapStatus=false;
+        this.mapLink="Open Map"
 
+	}
+}
 }

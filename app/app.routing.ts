@@ -5,6 +5,7 @@ import {LandingComponent} from './landing.component';
 import { AdminComponent }   from './admin.component';
 import { AwardsComponent }   from './awards.component';
 import { moviesComponent }   from './movies.component';
+import { googleMapComponent }   from './googleMap.component';
 import { FlightCheckOut }  from './CheckOut';
 
 const appRoutes: Routes = [
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
   { path: 'awards', component: AwardsComponent},
    { path: 'movie', component: moviesComponent},
    { path: 'admin', component: AdminComponent}, 
+    { path: 'maps', component: googleMapComponent},
     { path: 'checkout', component: FlightCheckOut },
     { path: '**', redirectTo: '/home'},
 

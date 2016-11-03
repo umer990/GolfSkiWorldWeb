@@ -14,7 +14,19 @@ var movies_component_1 = require('./movies.component');
 var deals_component_1 = require('./deals.component');
 var LandingComponent = (function () {
     function LandingComponent() {
+        this.mapStatus = false;
+        this.mapLink = "Open Map";
     }
+    LandingComponent.prototype.showMap = function () {
+        if (!this.mapStatus) {
+            this.mapStatus = true;
+            this.mapLink = "Close Map";
+        }
+        else {
+            this.mapStatus = false;
+            this.mapLink = "Open Map";
+        }
+    };
     LandingComponent = __decorate([
         core_1.Component({
             selector: 'landingPage',

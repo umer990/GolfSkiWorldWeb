@@ -40,7 +40,7 @@
     </div>  
 </sebm-google-map>(markerClick)=""-->
  
-<sebm-google-map style="height:350px;" (mapClick)="mapClicked1($event)" [latitude]="baseLat||0.00" [longitude]="baseLng||0.00"  [zoom]="zoom" [scrollwheel]='false'>
+<sebm-google-map style="height:450px;" (mapClick)="mapClicked1($event)" [latitude]="baseLat||0.00" [longitude]="baseLng||0.00"  [zoom]="zoom" [scrollwheel]='false'>
     <div *ngFor="let location of coordinatesTobeShown; let i=index; "  >
         <sebm-google-map-marker *ngIf="location.infoWindow!=null" [iconUrl]="location.iconUrl" [latitude]="location.lat" [longitude]="location.lng" [label]="location.id" (markerClick)="updateDiv(location, infowindow)">
         
